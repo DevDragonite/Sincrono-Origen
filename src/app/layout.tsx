@@ -19,6 +19,8 @@ export const metadata: Metadata = {
     description: 'Bridging the gap between organic chaos and digital precision.',
 };
 
+import SmoothScroll from '../components/ui/SmoothScroll';
+import Footer from '../components/layout/Footer';
 import { LanguageProvider } from '@/lib/i18n/LanguageContext';
 import LanguageToggle from '@/components/ui/LanguageToggle';
 
