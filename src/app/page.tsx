@@ -53,6 +53,29 @@ export default function Home() {
             <div className="absolute bottom-10 w-full flex justify-center z-10">
                 <div className="animate-bounce text-white/50 text-xs tracking-widest">SCROLL TO EXTRACT</div>
             </div>
+
+            {/* Dummy Sections for scrolling */}
+            <section className="h-screen w-full flex items-center justify-center relative z-10 pointer-events-none">
+                {/* Farm */}
+            </section>
+            <section className="h-screen w-full flex items-center justify-center relative z-10">
+                <div className="bg-black/80 p-8 border-l-2 border-brand-green backdrop-blur-md">
+                    <h2 className="text-4xl font-display text-brand-green mb-4">The Origin</h2>
+                    <p className="max-w-md text-gray-300">1800m above sea level. Shade-grown Bourbon.</p>
+                </div>
+            </section>
+            <section className="h-screen w-full flex items-center justify-center relative z-10">
+                <div className="bg-black/80 p-8 border-l-2 border-brand-copper backdrop-blur-md">
+                    <h2 className="text-4xl font-display text-brand-copper mb-4">The Roast</h2>
+                    <p className="max-w-md text-gray-300">Precision thermal application. Maillard reaction controlled to the second.</p>
+                </div>
+            </section>
+            <section className="h-screen w-full flex items-center justify-center relative z-10">
+                <div className="bg-black/80 p-8 border-l-2 border-white backdrop-blur-md">
+                    <h2 className="text-4xl font-display text-white mb-4">The Data</h2>
+                    <p className="max-w-md text-gray-300">Extraction yield optimized for clarity and sweetness.</p>
+                </div>
+            </section>
         </main>
     );
 }

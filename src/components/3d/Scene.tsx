@@ -1,10 +1,15 @@
 "use client";
 
+import { useRef } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Environment, OrbitControls, Sparkles } from '@react-three/drei';
 import CoffeeBean from './CoffeeBean';
+import ScrollyControl from './ScrollyControl';
+import { Mesh } from 'three';
 
 export default function Scene() {
+    const beanRef = useRef<Mesh>(null);
+
     return (
         <div className="absolute inset-0 z-0">
             <Canvas camera={{ position: [0, 0, 5], fov: 45 }} gl={{ antialias: true, alpha: true }}>
@@ -18,7 +23,8 @@ export default function Scene() {
                 <pointLight position={[-10, -10, -10]} intensity={5} color="#2E8B57" />
 
                 {/* Content */}
-                <CoffeeBean />
+                <CoffeeBean ref={beanRef} />
+                <ScrollyControl beanRef={beanRef} />
 
                 {/* Particles / Steam */}
                 <Sparkles
