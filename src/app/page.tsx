@@ -24,6 +24,10 @@ export default function Home() {
                     <span className="w-1 h-1 bg-current rounded-full" />
                     <span>Venezuela</span>
                 </div>
+
+                <div className="mt-12">
+                    <MagneticButton>Explore Origins</MagneticButton>
+                </div>
             </section>
 
             {/* Floating UI Data */}
