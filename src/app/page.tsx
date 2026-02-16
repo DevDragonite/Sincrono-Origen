@@ -2,6 +2,7 @@ import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import MagneticButton from '@/components/ui/MagneticButton';
 import TraceabilitySection from '@/components/sections/TraceabilitySection';
+import ProductsSection from '@/components/sections/ProductsSection';
 
 const Scene = dynamic(() => import('@/components/3d/Scene'), { ssr: false });
 
@@ -83,9 +84,7 @@ export default function Home() {
                 </div>
             </section>
 
-            import ProductsSection from '@/components/sections/ProductsSection';
 
-            // ...
 
             {/* Traceability Module */}
             <div className="relative z-10 bg-brand-black">
