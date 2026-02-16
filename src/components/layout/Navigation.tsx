@@ -19,7 +19,7 @@ export default function Navigation() {
             </Link>
 
             {/* Menu - Right (Desktop) */}
-            <div className="hidden md:flex flex-col items-end space-y-2 pointer-events-auto">
+            <div className="hidden md:flex flex-row items-center space-x-8 pointer-events-auto">
                 <Link href="/products" className={`text-xs uppercase tracking-widest transition-colors ${isActive('/products')}`}>
                     {t.nav.products}
                 </Link>

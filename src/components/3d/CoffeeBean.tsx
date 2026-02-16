@@ -9,30 +9,37 @@ const CoffeeBean = forwardRef<Mesh>((props, ref) => {
 
     return (
         <Float speed={2} rotationIntensity={0.2} floatIntensity={0.5}>
-            <group>
-                {/* Core Bean (Technological Heart) */}
-                <mesh
+            <group scale={1.5}>
+                {/* Left Half */}
+                <mesh position={[-0.2, 0, 0]} rotation={[0, 0, 0.2]} castShadow receiveShadow
                     // @ts-ignore
                     ref={ref}
                     onPointerOver={() => setHover(true)}
                     onPointerOut={() => setHover(false)}
-                    scale={hovered ? 1.1 : 1}
+                    scale={hovered ? 1.05 : 1}
                 >
-                    <icosahedronGeometry args={[1.5, 0]} />
+                    <sphereGeometry args={[1, 32, 32]} />
                     <meshStandardMaterial
-                        color="#B87333"
-                        wireframe={true}
-                        emissive="#B87333"
-                        emissiveIntensity={0.5}
-                        transparent
-                        opacity={0.8}
+                        color="#5D4037"
+                        roughness={0.6}
+                        metalness={0.1}
                     />
                 </mesh>
 
-                {/* Inner Solid Core */}
-                <mesh scale={0.8}>
-                    <icosahedronGeometry args={[1.2, 0]} />
-                    <meshStandardMaterial color="#1C1C1C" roughness={0.2} metalness={0.8} />
+                {/* Right Half */}
+                <mesh position={[0.2, 0, 0]} rotation={[0, 0, -0.2]} castShadow receiveShadow scale={hovered ? 1.05 : 1}>
+                    <sphereGeometry args={[1, 32, 32]} />
+                    <meshStandardMaterial
+                        color="#5D4037"
+                        roughness={0.6}
+                        metalness={0.1}
+                    />
+                </mesh>
+
+                {/* Crease (Dark Line) */}
+                <mesh position={[0, 0, 0]} scale={[0.1, 1.8, 1.8]}>
+                    <boxGeometry />
+                    <meshBasicMaterial color="#2a1e16" />
                 </mesh>
             </group>
         </Float>
