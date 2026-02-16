@@ -10,6 +10,7 @@ export default function Navigation() {
     const { t } = useLanguage();
     const pathname = usePathname();
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
 
     // Lock body scroll when menu is open
     useEffect(() => {
