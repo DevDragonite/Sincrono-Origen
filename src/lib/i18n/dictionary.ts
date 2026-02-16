@@ -15,10 +15,12 @@ export const dictionary = {
         },
         traceability: {
             title: "PRECISION EXTRACTION",
+            subtitle: "From Soil to Sensor",
             formula_label: "Target Equation",
             calculated_yield: "Calculated Yield:",
             description: "We monitor Total Dissolved Solids (TDS) to ensure every batch extracts the optimal spectrum of flavor notes. Our Cyber-Wash process guarantees a clean, transparent cup profile consistent with our 21% extraction target.",
             batch: "Batch",
+            lot: "Lot #842",
             roast: "Roast"
         },
         products: {
@@ -50,10 +52,12 @@ export const dictionary = {
         },
         traceability: {
             title: "EXTRACCIÓN DE PRECISIÓN",
+            subtitle: "Del Suelo al Sensor",
             formula_label: "Ecuación Objetivo",
             calculated_yield: "Rendimiento Calculado:",
             description: "Monitoreamos los Sólidos Totales Disueltos (TDS) para asegurar que cada lote extraiga el espectro óptimo de notas de sabor. Nuestro proceso Cyber-Wash garantiza un perfil de taza limpio y transparente consistente con nuestro objetivo de extracción del 21%.",
             batch: "Lote",
+            lot: "Lote #842",
             roast: "Tueste"
         },
         products: {

@@ -9,9 +9,10 @@ export default function TraceabilitySection() {
     const [stats, setStats] = useState({ extraction: 0, tds: 0 });
 
     useEffect(() => {
-        // Simulamos la obtención de datos en tiempo real
-        const data = calculateExtractionYield(18, 36, 1.45);
-        setStats(data);
+        // Simulamos la obtención de datos en tiempo real (TDS: 1.35, Water: 300g, Coffee: 18g)
+        const tds = 1.35;
+        const extraction = calculateExtractionYield(tds, 300, 18);
+        setStats({ extraction, tds });
     }, []);
 
     return (
@@ -34,7 +35,7 @@ export default function TraceabilitySection() {
                             {t.traceability.subtitle}
                         </h2>
                         <p className="text-brand-cream/80 text-lg leading-relaxed mb-8">
-                            {t.traceability.desc}
+                            {t.traceability.description}
                         </p>
 
                         <div className="grid grid-cols-2 gap-8 border-t border-brand-cream/10 pt-8">
