@@ -1,13 +1,13 @@
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
+
+const Scene = dynamic(() => import('@/components/3d/Scene'), { ssr: false });
 
 export default function Home() {
     return (
-        <main className="relative min-h-screen w-full flex flex-col items-center justify-center">
+        <main className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-x-hidden">
             {/* 3D Scene Layer */}
-            <div className="fixed inset-0 z-0">
-                {/* <Scene3D /> Placeholder */}
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brand-black/90 z-10 pointer-events-none" />
-            </div>
+            <Scene />
 
             {/* Hero Content */}
             <section className="relative z-10 flex flex-col items-center text-center p-4">
