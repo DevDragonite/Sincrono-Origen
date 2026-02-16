@@ -1,0 +1,29 @@
+{
+  "name": "sincrono-origen",
+  "version": "1.0.0",
+  "description": "This project uses **ES Modules** for Three.js, which means it **must be served via a local web server** to avoid CORS errors (file:// protocol check).",
+  "main": "main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevDragonite/Sincrono-Origen.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/DevDragonite/Sincrono-Origen/issues"
+  },
+  "homepage": "https://github.com/DevDragonite/Sincrono-Origen#readme",
+  "dependencies": {
+    "three": "^0.182.0"
+  },
+  "devDependencies": {
+    "vite": "^7.3.1"
+  }
+}

@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme {
+    --color-brand-black: #1C1C1C;
+    --color-brand-charcoal: #2A2A2A;
+    --color-brand-copper: #B87333;
+    --color-brand-copper-light: #E5A064;
+    --color-brand-green: #2E8B57;
+    --color-brand-green-dark: #1A5235;
+
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+/* Custom Utilities */
+@layer utilities {
+    .text-shadow {
+        text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    .text-glow {
+        text-shadow: 0 0 20px rgba(184, 115, 51, 0.5);
+    }
+}
+
+/* GSAP / Smooth Scroll Fixes */
+html.lenis,
+html.lenis body {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+    pointer-events: none;
+}
