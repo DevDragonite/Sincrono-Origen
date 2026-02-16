@@ -1,21 +1,23 @@
 "use client";
 
 import { useState, forwardRef } from 'react';
-import { Mesh } from 'three';
+import { Group } from 'three';
 import { Float } from '@react-three/drei';
 
-const CoffeeBean = forwardRef<Mesh>((props, ref) => {
+const CoffeeBean = forwardRef<Group>((props, ref) => {
     const [hovered, setHover] = useState(false);
 
     return (
         <Float speed={2} rotationIntensity={0.2} floatIntensity={0.5}>
-            <group scale={1.5}>
+            <group
+                scale={1.5}
+                // @ts-ignore
+                ref={ref}
+                onPointerOver={() => setHover(true)}
+                onPointerOut={() => setHover(false)}
+            >
                 {/* Left Half */}
                 <mesh position={[-0.2, 0, 0]} rotation={[0, 0, 0.2]} castShadow receiveShadow
-                    // @ts-ignore
-                    ref={ref}
-                    onPointerOver={() => setHover(true)}
-                    onPointerOut={() => setHover(false)}
                     scale={hovered ? 1.05 : 1}
                 >
                     <sphereGeometry args={[1, 32, 32]} />
