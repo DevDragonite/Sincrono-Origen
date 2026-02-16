@@ -13,7 +13,7 @@ export default function Home() {
     return (
         <main className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-x-hidden bg-brand-cream text-brand-brown">
             {/* 3D Scene Layer */}
-            <div className="fixed inset-0 z-0 opacity-80 pointer-events-none mix-blend-multiply">
+            <div className="fixed inset-0 z-0 pointer-events-none">
                 <DynamicScene />
             </div>
 

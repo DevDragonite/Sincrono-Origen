@@ -13,14 +13,14 @@ export default function Scene() {
     return (
         <div className="absolute inset-0 z-0">
             <Canvas camera={{ position: [0, 0, 5], fov: 45 }} gl={{ antialias: true, alpha: true }}>
-                {/* Atmosphere */}
-                <color attach="background" args={['#050505']} />
-                <fog attach="fog" args={['#050505', 5, 15]} />
+                {/* Atmosphere - Removed dark background to let CSS show through */}
+                {/* <color attach="background" args={['#050505']} /> */}
+                <fog attach="fog" args={['#FDFBF7', 5, 15]} />
 
                 {/* Lighting */}
-                <ambientLight intensity={0.5} />
-                <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={10} color="#B87333" />
-                <pointLight position={[-10, -10, -10]} intensity={5} color="#2E8B57" />
+                <ambientLight intensity={0.8} />
+                <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={12} color="#B87333" />
+                <pointLight position={[-10, -10, -10]} intensity={8} color="#4A7C59" />
 
                 {/* Content */}
                 <CoffeeBean ref={beanRef} />
@@ -32,8 +32,8 @@ export default function Scene() {
                     scale={6}
                     size={2}
                     speed={0.4}
-                    opacity={0.5}
-                    color="#B87333"
+                    opacity={0.6}
+                    color="#6F4E37"
                 />
 
                 {/* Controls (Optional, disabled zoom for scroll feel) */}
