@@ -21,25 +21,19 @@ export const metadata: Metadata = {
 
 import SmoothScroll from '../components/ui/SmoothScroll';
 import Footer from '../components/layout/Footer';
-import { LanguageProvider } from '@/lib/i18n/LanguageContext';
-import LanguageToggle from '@/components/ui/LanguageToggle';
+import Navigation from '../components/layout/Navigation';
 
 export default function RootLayout({
-    children,
-}: {
-    children: React.ReactNode
-}) {
-    return (
-        <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
-            <body className="bg-brand-cream text-brand-brown font-body antialiased overflow-x-hidden selection:bg-brand-green selection:text-white">
+// ... (existing code)
                 <LanguageProvider>
-                    <SmoothScroll>
-                        <LanguageToggle />
-                        {children}
-                        <Footer />
-                    </SmoothScroll>
-                </LanguageProvider>
-            </body>
-        </html>
+    <SmoothScroll>
+        <Navigation />
+        <LanguageToggle />
+        {children}
+        <Footer />
+    </SmoothScroll>
+                </LanguageProvider >
+            </body >
+        </html >
     );
 }
