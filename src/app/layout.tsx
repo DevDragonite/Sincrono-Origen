@@ -28,13 +28,16 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
+    return (
         <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
-            <body className="bg-brand-black text-white font-body antialiased overflow-x-hidden selection:bg-brand-copper selection:text-brand-black">
+            <body className="bg-brand-cream text-brand-brown font-body antialiased overflow-x-hidden selection:bg-brand-green selection:text-white">
                 <SmoothScroll>
                     {children}
                     <Footer />
                 </SmoothScroll>
             </body>
         </html>
+    );
+}
     );
 }

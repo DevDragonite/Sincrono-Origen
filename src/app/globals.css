@@ -1,12 +1,21 @@
 @import "tailwindcss";
 
 @theme {
-    --color-brand-black: #1C1C1C;
-    --color-brand-charcoal: #2A2A2A;
+    /* Day Mode Palette */
+    --color-brand-cream: #FDFBF7;
+    /* Base Background */
+    --color-brand-brown: #3C2A20;
+    /* Primary Text (Coffee Bean) */
+    --color-brand-roast: #6F4E37;
+    /* Secondary/UI (Roast) */
+    --color-brand-green: #4A7C59;
+    /* Nature/Origin (Leaf) */
+    --color-brand-green-dark: #2F5238;
     --color-brand-copper: #B87333;
-    --color-brand-copper-light: #E5A064;
-    --color-brand-green: #2E8B57;
-    --color-brand-green-dark: #1A5235;
+    /* Keeping Copper for Metallic Accents */
+
+    /* Legacy/Dark Mode overrides or utility support if needed */
+    --color-brand-black: #1C1C1C;
 
     --font-display: 'Playfair Display', serif;
     --font-body: 'Inter', sans-serif;
@@ -15,12 +24,14 @@
 /* Custom Utilities */
 @layer utilities {
     .text-shadow {
-        text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        text-shadow: 0 4px 12px rgba(60, 42, 32, 0.1);
     }
+}
 
-    .text-glow {
-        text-shadow: 0 0 20px rgba(184, 115, 51, 0.5);
-    }
+/* Base Styles */
+body {
+    background-color: var(--color-brand-cream);
+    color: var(--color-brand-brown);
 }
 
 /* GSAP / Smooth Scroll Fixes */
