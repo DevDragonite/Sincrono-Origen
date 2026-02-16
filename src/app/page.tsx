@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import MagneticButton from '@/components/ui/MagneticButton';
+import TraceabilitySection from '@/components/sections/TraceabilitySection';
 
 const Scene = dynamic(() => import('@/components/3d/Scene'), { ssr: false });
 
