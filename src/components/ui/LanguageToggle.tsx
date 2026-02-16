@@ -5,12 +5,18 @@ import { useLanguage } from '@/lib/i18n/LanguageContext';
 export default function LanguageToggle() {
     const { language, setLanguage } = useLanguage();
 
+    const toggle = () => {
+        setLanguage(language === 'en' ? 'es' : 'en');
+    };
+
     return (
         <button
-            onClick={() => setLanguage(language === 'en' ? 'es' : 'en')}
-            className="fixed top-8 right-8 z-50 px-4 py-2 bg-white/50 backdrop-blur-md rounded-full border border-brand-brown/10 text-xs font-bold tracking-widest text-brand-brown hover:bg-brand-brown hover:text-white transition-all uppercase"
+            onClick={toggle}
+            className="fixed top-8 right-8 z-50 flex items-center gap-2 text-sm font-bold tracking-widest text-brand-brown hover:text-brand-green transition-colors mix-blend-difference"
         >
-            {language === 'en' ? 'ES' : 'EN'}
+            <span className={language === 'en' ? 'opacity-100' : 'opacity-40'}>EN</span>
+            <span className="opacity-40">/</span>
+            <span className={language === 'es' ? 'opacity-100' : 'opacity-40'}>ES</span>
         </button>
     );
 }
