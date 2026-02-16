@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
+import MagneticButton from '@/components/ui/MagneticButton';
 
 const Scene = dynamic(() => import('@/components/3d/Scene'), { ssr: false });
 

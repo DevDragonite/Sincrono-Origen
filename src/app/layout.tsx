@@ -20,6 +20,7 @@ export const metadata: Metadata = {
 };
 
 import SmoothScroll from '../components/ui/SmoothScroll';
+import Footer from '../components/layout/Footer';
 
 export default function RootLayout({
     children,
@@ -31,6 +32,7 @@ export default function RootLayout({
             <body className="bg-brand-black text-white font-body antialiased overflow-x-hidden selection:bg-brand-copper selection:text-brand-black">
                 <SmoothScroll>
                     {children}
+                    <Footer />
                 </SmoothScroll>
             </body>
         </html>
