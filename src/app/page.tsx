@@ -81,6 +81,11 @@ export default function Home() {
                     <p className="max-w-md text-gray-300">Extraction yield optimized for clarity and sweetness.</p>
                 </div>
             </section>
+
+            {/* Traceability Module */}
+            <div className="relative z-10 bg-brand-black">
+                <TraceabilitySection />
+            </div>
         </main>
     );
 }

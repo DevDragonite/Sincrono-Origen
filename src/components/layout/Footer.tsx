@@ -54,7 +54,7 @@ export default function Footer() {
                                 placeholder="EMAIL"
                                 className="w-full bg-transparent border-b border-brand-copper/30 py-2 text-sm focus:border-brand-copper outline-none transition-colors placeholder:text-gray-600"
                             />
-                            <button className="text-xs text-brand-copper font-bold hover:text-white transition-colors">SUBSCRIBE -></button>
+                            <button className="text-xs text-brand-copper font-bold hover:text-white transition-colors">SUBSCRIBE -&gt;</button>
                         </form>
                     </div>
                 </div>
