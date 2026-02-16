@@ -19,8 +19,8 @@ export const metadata: Metadata = {
     description: 'Bridging the gap between organic chaos and digital precision.',
 };
 
-import SmoothScroll from '../components/ui/SmoothScroll';
-import Footer from '../components/layout/Footer';
+import { LanguageProvider } from '@/lib/i18n/LanguageContext';
+import LanguageToggle from '@/components/ui/LanguageToggle';
 
 export default function RootLayout({
     children,
@@ -30,10 +30,13 @@ export default function RootLayout({
     return (
         <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
             <body className="bg-brand-cream text-brand-brown font-body antialiased overflow-x-hidden selection:bg-brand-green selection:text-white">
-                <SmoothScroll>
-                    {children}
-                    <Footer />
-                </SmoothScroll>
+                <LanguageProvider>
+                    <SmoothScroll>
+                        <LanguageToggle />
+                        {children}
+                        <Footer />
+                    </SmoothScroll>
+                </LanguageProvider>
             </body>
         </html>
     );
