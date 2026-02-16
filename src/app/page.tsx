@@ -1,10 +1,7 @@
-"use client";
-
 import Image from 'next/image';
 import MagneticButton from '@/components/ui/MagneticButton';
 import TraceabilitySection from '@/components/sections/TraceabilitySection';
 import ProductsSection from '@/components/sections/ProductsSection';
-import DynamicScene from '@/components/3d/DynamicScene';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 
 export default function Home() {
@@ -12,10 +9,6 @@ export default function Home() {
 
     return (
         <main className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-x-hidden bg-brand-cream text-brand-brown">
-            {/* 3D Scene Layer */}
-            <div className="fixed inset-0 z-0 pointer-events-none">
-                <DynamicScene />
-            </div>
 
             {/* Hero Content */}
             <section className="relative z-10 flex flex-col items-center text-center p-4 min-h-screen justify-center">
