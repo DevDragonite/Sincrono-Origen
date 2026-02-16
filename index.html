@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Síncrono Origen | Technological Coffee</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Three.js Import Map -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Síncrono Origen</div>
+        <div class="nav-links">
+            <a href="#details" data-i18n="nav.process">Process</a>
+            <a href="#about" data-i18n="nav.origins">Origins</a>
+            <a href="#contact" data-i18n="nav.join">Join Us</a>
+            <button id="lang-toggle" class="lang-btn">ES</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section (3D & Scrollytelling) -->
+    <header id="hero">
+        <canvas id="webgl-canvas"></canvas>
+        <div class="hero-overlay">
+            <h1 class="hero-title">
+                <span class="line" data-i18n="hero.title_1">Digital</span>
+                <span class="line" data-i18n="hero.title_2">Transformation</span>
+                <span class="line" data-i18n="hero.title_3">Of Coffee</span>
+            </h1>
+            <p class="hero-subtitle" data-i18n="hero.subtitle">Caracas, Venezuela /// 1800m</p>
+        </div>
+
+        <!-- Floating UI Elements -->
+        <div class="ui-panel top-right">
+            <div class="data-row">
+                <span class="label" data-i18n="data.elevation">ELEVATION</span>
+                <span class="value">1800m</span>
+            </div>
+            <div class="data-row">
+                <span class="label" data-i18n="data.variety">VARIETY</span>
+                <span class="value">Red Bourbon</span>
+            </div>
+        </div>
+
+        <div class="ui-panel bottom-left">
+            <div class="data-row">
+                <span class="label" data-i18n="data.extraction">EXTRACTION</span>
+                <span class="value">21%</span>
+            </div>
+            <div class="data-row">
+                <span class="label" data-i18n="data.process">PROCESS</span>
+                <span class="value">Cyber-Wash</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Scrollytelling Indicators / Sections -->
+    <section id="details" class="scrolly-section">
+        <div class="step" data-step="1">
+            <h2 data-i18n="steps.bean_title">The Bean</h2>
+            <p data-i18n="steps.bean_desc">Raw potential encapsulated in organic matter.</p>
+        </div>
+        <div class="step" data-step="2">
+            <h2 data-i18n="steps.roast_title">The Roast</h2>
+            <p data-i18n="steps.roast_desc">Thermal energy unlocking complex aromatics.</p>
+        </div>
+        <div class="step" data-step="3">
+            <h2 data-i18n="steps.brew_title">The Digital Brew</h2>
+            <p data-i18n="steps.brew_desc">Precision extraction guided by data.</p>
+        </div>
+    </section>
+
+    <!-- About / Footer -->
+    <footer id="about">
+        <div class="footer-grid">
+            <div class="footer-col brand">
+                <h3>Síncrono Origen.</h3>
+                <p data-i18n="footer.slogan">Bridging the gap between organic chaos and digital precision in coffee
+                    extraction.</p>
+            </div>
+
+            <div class="footer-col about">
+                <h4 data-i18n="footer.about_title">About Us</h4>
+                <a href="#" data-i18n="footer.about_story">Our Story</a>
+                <a href="#" data-i18n="footer.about_source">The Source</a>
+                <a href="#" data-i18n="footer.about_sus">Sustainability</a>
+            </div>
+
+            <div class="footer-col careers">
+                <h4 data-i18n="footer.join_title">Join the Team</h4>
+                <a href="#" data-i18n="footer.join_roles">Open Roles</a>
+                <a href="#" data-i18n="footer.join_culture">Culture</a>
+                <a href="#" data-i18n="footer.join_intern">Internships</a>
+            </div>
+
+            <div class="footer-col newsletter">
+                <h4 data-i18n="footer.newsletter_title">Stay Synced</h4>
+                <form>
+                    <input type="email" placeholder="Enter your email">
+                    <button type="button" data-i18n="footer.subscribe">SUBSCRIBE</button>
+                </form>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="main.js"></script>
+</body>
+
+</html>

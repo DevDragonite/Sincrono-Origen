@@ -1,0 +1,294 @@
+:root {
+    --color-obsidian: #050505;
+    --color-charcoal: #121212;
+    --color-copper: #B87333;
+    --color-copper-light: #E5A064;
+    --color-text-main: #Eaeaea;
+    --color-text-muted: #888888;
+
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-obsidian);
+    color: var(--color-text-main);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Nav */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: var(--spacing-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    mix-blend-mode: difference;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: -0.02em;
+}
+
+.nav-links a {
+    color: var(--color-text-main);
+    text-decoration: none;
+    margin-left: var(--spacing-md);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--color-copper);
+}
+
+.lang-btn {
+    background: transparent;
+    border: 1px solid var(--color-copper);
+    color: var(--color-copper);
+    padding: 5px 10px;
+    margin-left: 2rem;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.lang-btn:hover {
+    background: var(--color-copper);
+    color: var(--color-obsidian);
+}
+
+/* Hero */
+#hero {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+#webgl-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    /* Let clicks pass through for now, unless we add interaction later */
+}
+
+/* Hero Overlay */
+.hero-overlay {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    z-index: 10;
+    pointer-events: none;
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 1;
+    color: white;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.hero-title .line {
+    display: block;
+    opacity: 0;
+    /* Animated in JS */
+    transform: translateY(20px);
+}
+
+.hero-subtitle {
+    margin-top: var(--spacing-md);
+    font-family: var(--font-body);
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    color: var(--color-copper);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    opacity: 0;
+    /* Animated in JS */
+}
+
+/* Floating UI */
+.ui-panel {
+    position: absolute;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    font-family: var(--font-body);
+    min-width: 200px;
+}
+
+.ui-panel.top-right {
+    top: 20%;
+    right: 5%;
+}
+
+.ui-panel.bottom-left {
+    bottom: 10%;
+    left: 5%;
+}
+
+.data-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+}
+
+.data-row:last-child {
+    margin-bottom: 0;
+}
+
+.data-row .label {
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.data-row .value {
+    color: var(--color-copper);
+    font-weight: 500;
+    font-family: monospace;
+}
+
+/* Scrollytelling Section */
+.scrolly-section {
+    position: relative;
+    z-index: 5;
+    margin-top: 100vh;
+    /* Push below hero init */
+    padding-bottom: 50vh;
+    pointer-events: none;
+    /* Allow seeing canvas behind */
+}
+
+.step {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 10%;
+    opacity: 0.2;
+    transition: opacity 0.5s;
+}
+
+.step.active {
+    opacity: 1;
+}
+
+.step h2 {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    color: var(--color-copper-light);
+    margin-bottom: 1rem;
+}
+
+.step p {
+    max-width: 400px;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+/* Footer */
+footer {
+    position: relative;
+    z-index: 10;
+    background-color: var(--color-charcoal);
+    padding: var(--spacing-lg) 10%;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    /* Added column */
+    gap: 3rem;
+}
+
+.footer-col.brand p {
+    max-width: 300px;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+}
+
+/* Explicit About and Careers columns */
+.footer-col.about h4,
+.footer-col.careers h4 {
+    color: var(--color-copper);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+}
+
+.footer-col.newsletter input {
+    width: 100%;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    margin-bottom: 10px;
+}
+
+.footer-col.newsletter button {
+    padding: 10px 20px;
+    background: var(--color-copper);
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.footer-col.newsletter button:hover {
+    background: var(--color-copper-light);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .ui-panel {
+        display: none;
+        /* Hide complex UI on small screens or adjust */
+    }
+}
