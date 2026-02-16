@@ -1,16 +1,14 @@
 import Image from 'next/image';
-import dynamic from 'next/dynamic';
 import MagneticButton from '@/components/ui/MagneticButton';
 import TraceabilitySection from '@/components/sections/TraceabilitySection';
 import ProductsSection from '@/components/sections/ProductsSection';
-
-const Scene = dynamic(() => import('@/components/3d/Scene'), { ssr: false });
+import DynamicScene from '@/components/3d/DynamicScene';
 
 export default function Home() {
     return (
         <main className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-x-hidden">
             {/* 3D Scene Layer */}
-            <Scene />
+            <DynamicScene />
 
             {/* Hero Content */}
             <section className="relative z-10 flex flex-col items-center text-center p-4">
