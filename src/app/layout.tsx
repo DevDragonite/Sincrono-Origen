@@ -36,7 +36,6 @@ export default function RootLayout({
                 <LanguageProvider>
                     <SmoothScroll>
                         <Navigation />
-                        <LanguageToggle />
                         {children}
                         <Footer />
                     </SmoothScroll>

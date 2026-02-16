@@ -8,31 +8,31 @@ export default function BlogPage() {
     return (
         <main className="min-h-screen pt-32 pb-16 px-4 md:px-8 bg-brand-cream text-brand-brown">
             <div className="container mx-auto max-w-4xl">
-                <h1 className="font-display text-5xl md:text-6xl mb-12 text-center text-brand-green-dark">The Journal</h1>
+                <h1 className="font-display text-5xl md:text-6xl mb-12 text-center text-brand-green-dark">{t.blog.title}</h1>
 
                 <div className="space-y-12">
                     {/* Article 1 */}
                     <article className="border-b border-brand-brown/10 pb-12">
-                        <div className="text-xs font-bold text-brand-copper uppercase tracking-widest mb-2">February 2026</div>
+                        <div className="text-xs font-bold text-brand-copper uppercase tracking-widest mb-2">{t.blog.month_feb}</div>
                         <h2 className="font-display text-3xl md:text-4xl mb-4 hover:text-brand-green-dark transition-colors cursor-pointer">
-                            The Renaissance of Venezuelan Bourbon
+                            {t.blog.article1_title}
                         </h2>
                         <p className="text-brand-roast leading-relaxed mb-6">
-                            Exploring how precision agriculture is reviving ancient varietals in the coastal mountains.
+                            {t.blog.article1_desc}
                         </p>
-                        <a href="#" className="text-xs font-bold underline decoration-brand-copper underline-offset-4 hover:text-brand-copper">Read Protocol</a>
+                        <a href="#" className="text-xs font-bold underline decoration-brand-copper underline-offset-4 hover:text-brand-copper">{t.blog.read}</a>
                     </article>
 
                     {/* Article 2 */}
                     <article className="border-b border-brand-brown/10 pb-12">
-                        <div className="text-xs font-bold text-brand-copper uppercase tracking-widest mb-2">January 2026</div>
+                        <div className="text-xs font-bold text-brand-copper uppercase tracking-widest mb-2">{t.blog.month_jan}</div>
                         <h2 className="font-display text-3xl md:text-4xl mb-4 hover:text-brand-green-dark transition-colors cursor-pointer">
-                            Data-Driven Roasting Profiles
+                            {t.blog.article2_title}
                         </h2>
                         <p className="text-brand-roast leading-relaxed mb-6">
-                            How we use sensor data to replicate the perfect Maillard reaction every single time.
+                            {t.blog.article2_desc}
                         </p>
-                        <a href="#" className="text-xs font-bold underline decoration-brand-copper underline-offset-4 hover:text-brand-copper">Read Protocol</a>
+                        <a href="#" className="text-xs font-bold underline decoration-brand-copper underline-offset-4 hover:text-brand-copper">{t.blog.read}</a>
                     </article>
                 </div>
             </div>

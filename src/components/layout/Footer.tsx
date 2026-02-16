@@ -8,7 +8,7 @@ export default function Footer() {
     const { t } = useLanguage();
 
     return (
-        <footer className="relative bg-brand-brown border-t border-brand-roast text-white py-16 overflow-hidden">
+        <footer id="contact" className="relative bg-brand-brown border-t border-brand-roast text-white py-16 overflow-hidden">
             <div className="container mx-auto px-4 md:px-8">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
 
@@ -29,13 +29,13 @@ export default function Footer() {
                         <h3 className="text-brand-green font-bold text-xs tracking-[0.2em] mb-6 uppercase">{t.footer.transparency}</h3>
                         <ul className="space-y-3 text-sm text-brand-cream/60">
                             <li className="flex items-center gap-2 hover:text-white cursor-pointer transition-colors">
-                                <LucideFileCheck size={16} /> Data Sheets (TDS)
+                                <LucideFileCheck size={16} /> {t.footer.data_sheets}
                             </li>
                             <li className="flex items-center gap-2 hover:text-white cursor-pointer transition-colors">
-                                <LucideAward size={16} /> SICA: 1234-5678
+                                <LucideAward size={16} /> {t.footer.sica}
                             </li>
                             <li className="flex items-center gap-2 hover:text-white cursor-pointer transition-colors">
-                                <LucideSprout size={16} /> Direct Trade Contracts
+                                <LucideSprout size={16} /> {t.footer.contracts}
                             </li>
                         </ul>
                     </div>
@@ -44,9 +44,9 @@ export default function Footer() {
                     <div className="md:col-span-3">
                         <h3 className="text-brand-green font-bold text-xs tracking-[0.2em] mb-6 uppercase">{t.footer.sustainability}</h3>
                         <ul className="space-y-3 text-sm text-brand-cream/60">
-                            <li><span className="text-brand-copper">•</span> Carbon Neutral Roast</li>
-                            <li><span className="text-brand-copper">•</span> Compostable Packaging</li>
-                            <li><span className="text-brand-copper">•</span> Water Cyclical Use</li>
+                            <li><span className="text-brand-copper">•</span> {t.footer.carbon}</li>
+                            <li><span className="text-brand-copper">•</span> {t.footer.packaging}</li>
+                            <li><span className="text-brand-copper">•</span> {t.footer.water}</li>
                         </ul>
                     </div>
 
@@ -56,10 +56,10 @@ export default function Footer() {
                         <form className="mt-4 space-y-2">
                             <input
                                 type="email"
-                                placeholder="EMAIL"
+                                placeholder={t.footer.email_placeholder}
                                 className="w-full bg-transparent border-b border-brand-cream/30 py-2 text-sm focus:border-brand-copper outline-none transition-colors placeholder:text-brand-cream/40 text-brand-cream"
                             />
-                            <button className="text-xs text-brand-copper font-bold hover:text-white transition-colors">SUBSCRIBE -&gt;</button>
+                            <button className="text-xs text-brand-copper font-bold hover:text-white transition-colors">{t.footer.subscribe}</button>
                         </form>
                     </div>
                 </div>
@@ -67,8 +67,8 @@ export default function Footer() {
                 <div className="mt-16 pt-8 border-t border-brand-cream/10 flex flex-col md:flex-row justify-between items-center text-xs text-brand-cream/40">
                     <p>{t.footer.rights}</p>
                     <div className="flex space-x-6 mt-4 md:mt-0">
-                        <a href="#" className="hover:text-brand-copper">Privacy Protocol</a>
-                        <a href="#" className="hover:text-brand-copper">Terms of Extraction</a>
+                        <a href="#" className="hover:text-brand-copper">{t.footer.privacy}</a>
+                        <a href="#" className="hover:text-brand-copper">{t.footer.terms}</a>
                     </div>
                 </div>
             </div>
