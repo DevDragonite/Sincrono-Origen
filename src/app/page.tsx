@@ -83,9 +83,14 @@ export default function Home() {
                 </div>
             </section>
 
+            import ProductsSection from '@/components/sections/ProductsSection';
+
+            // ...
+
             {/* Traceability Module */}
             <div className="relative z-10 bg-brand-black">
                 <TraceabilitySection />
+                <ProductsSection />
             </div>
         </main>
     );
