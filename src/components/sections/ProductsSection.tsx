@@ -19,12 +19,12 @@ export default function ProductsSection() {
 
     const products = t.products?.items || [];
 
-    // Shuffle and pick 3 random products (changes on each page load)
+    // Shuffle and pick 3 random products (changes on each page load / language switch)
     const randomProducts = useMemo(() => {
         const shuffled = [...products].sort(() => Math.random() - 0.5);
         return shuffled.slice(0, 3);
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [products.length]);
+    }, [language]);
 
     const handleAddToCart = (e: React.MouseEvent, p: any) => {
         e.stopPropagation();
