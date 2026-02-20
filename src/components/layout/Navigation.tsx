@@ -96,6 +96,7 @@ export default function Navigation() {
                 <nav className="flex flex-col items-center gap-8 z-10">
                     <Link
                         href="/products"
+                        scroll={false}
                         className="text-2xl font-display text-brand-cream hover:text-brand-copper transition-colors"
                         onClick={() => setMobileMenuOpen(false)}
                     >
@@ -135,7 +136,7 @@ export default function Navigation() {
 
             {/* Menu - Right (Desktop) */}
             <div className="hidden md:flex flex-row items-center space-x-8 pointer-events-auto">
-                <Link href="/products" className={isActive('/products')}>
+                <Link href="/products" scroll={false} className={isActive('/products')}>
                     {t.nav.products}
                 </Link>
                 <Link href="/allies" className={isActive('/allies')}>

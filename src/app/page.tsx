@@ -115,7 +115,7 @@ export default function Home() {
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
+                    viewport={{ once: false, amount: 0.3 }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
                     className="container mx-auto max-w-3xl text-center relative z-10"
                 >
@@ -125,7 +125,7 @@ export default function Home() {
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false, amount: 0.5 }}
                         transition={{ delay: 0.2, duration: 0.7 }}
                         className="font-display text-3xl md:text-5xl lg:text-6xl mb-8 leading-tight"
                     >
@@ -136,7 +136,7 @@ export default function Home() {
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false, amount: 0.5 }}
                         transition={{ delay: 0.4, duration: 0.7 }}
                         className="text-base md:text-xl opacity-80 leading-relaxed italic"
                     >

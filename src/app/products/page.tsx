@@ -5,7 +5,7 @@ import { useLanguage } from '@/lib/i18n/LanguageContext';
 import { motion, AnimatePresence } from 'framer-motion';
 import ProductMockup from '@/components/ui/illustrations/ProductMockup';
 import ProductModal from '@/components/ui/ProductModal';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useCart } from '@/lib/CartContext';
 import { useToast } from '@/components/ui/ToastNotification';
 
@@ -13,6 +13,11 @@ export default function ProductsPage() {
     const { t, language } = useLanguage();
     const { addItem } = useCart();
     const { showToast } = useToast();
+
+    // Smooth scroll to top on page mount for consistent transitions
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, []);
 
     const [selectedProduct, setSelectedProduct] = useState<any>(null);
     const [filter, setFilter] = useState<"all" | "Arabica" | "Robusta">("all");

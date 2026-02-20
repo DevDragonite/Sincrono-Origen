@@ -93,6 +93,7 @@ export default function ProductsSection() {
                 >
                     <Link
                         href="/products"
+                        scroll={false}
                         className="group inline-flex items-center gap-3 px-8 py-3 border border-brand-brown/20 rounded-full text-sm font-bold uppercase tracking-widest text-brand-brown hover:bg-brand-brown hover:text-brand-cream transition-all duration-500"
                     >
                         {language === "es" ? "Ver Catálogo Completo" : "View Full Catalog"}
