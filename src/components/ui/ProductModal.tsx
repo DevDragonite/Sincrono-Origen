@@ -1,7 +1,12 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { X } from "lucide-react";
+import { X, MessageCircle } from "lucide-react";
+import { useCart } from "@/lib/CartContext";
+import { useToast } from "./ToastNotification";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+
+const WHATSAPP_NUMBER = "584121234567";
 
 interface Product {
     id: string;
@@ -23,7 +28,27 @@ interface ProductModalProps {
 }
 
 export default function ProductModal({ isOpen, onClose, product, labels }: ProductModalProps) {
+    const { addItem } = useCart();
+    const { showToast } = useToast();
+    const { language } = useLanguage();
+
     if (!isOpen || !product) return null;
+
+    const handleAddToCart = () => {
+        addItem({ id: product.id, name: product.name, price: product.price, type: product.type });
+        showToast(
+            language === "es" ? `${product.name} añadido al carrito` : `${product.name} added to cart`,
+            "cart"
+        );
+        onClose();
+    };
+
+    const handleWhatsApp = () => {
+        const msg = language === "es"
+            ? `¡Hola! Me interesa el café *${product.name}* (${product.price}). ¿Tienen disponibilidad?`
+            : `Hi! I'm interested in *${product.name}* coffee (${product.price}). Is it available?`;
+        window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, "_blank");
+    };
 
     return (
         <AnimatePresence>
@@ -81,10 +106,22 @@ export default function ProductModal({ isOpen, onClose, product, labels }: Produ
                                 </div>
                             </div>
 
-                            <div className="flex items-center justify-between pt-6 border-t border-brand-brown/10">
-                                <div className="font-mono text-2xl text-brand-copper">{product.price}</div>
-                                <button className="bg-brand-brown text-brand-cream px-6 py-3 rounded hover:bg-brand-green transition-colors uppercase text-xs font-bold tracking-widest">
+                            <div className="pt-6 border-t border-brand-brown/10 space-y-3">
+                                <div className="flex items-center justify-between mb-2">
+                                    <div className="font-mono text-2xl text-brand-copper">{product.price}</div>
+                                </div>
+                                <button
+                                    onClick={handleAddToCart}
+                                    className="w-full bg-brand-brown text-brand-cream px-6 py-3 rounded hover:bg-brand-green transition-colors uppercase text-xs font-bold tracking-widest"
+                                >
                                     {labels.cta}
+                                </button>
+                                <button
+                                    onClick={handleWhatsApp}
+                                    className="w-full bg-[#25D366] text-white px-6 py-3 rounded hover:bg-[#20BD5A] transition-colors uppercase text-xs font-bold tracking-widest flex items-center justify-center gap-2"
+                                >
+                                    <MessageCircle size={16} />
+                                    {language === "es" ? "Consultar por WhatsApp" : "Ask via WhatsApp"}
                                 </button>
                             </div>
                         </div>
@@ -94,3 +131,4 @@ export default function ProductModal({ isOpen, onClose, product, labels }: Produ
         </AnimatePresence>
     );
 }
+

@@ -23,7 +23,12 @@ import SmoothScroll from '../components/ui/SmoothScroll';
 import Footer from '../components/layout/Footer';
 import Navigation from '../components/layout/Navigation';
 import { LanguageProvider } from '@/lib/i18n/LanguageContext';
-import LanguageToggle from '@/components/ui/LanguageToggle';
+import { CartProvider } from '@/lib/CartContext';
+import { ToastProvider } from '@/components/ui/ToastNotification';
+import CartDrawer from '@/components/ui/CartDrawer';
+import WhatsAppFAB from '@/components/ui/WhatsAppFAB';
+import BackToTop from '@/components/ui/BackToTop';
+import PageTransition from '@/components/ui/PageTransition';
 
 export default function RootLayout({
     children,
@@ -34,11 +39,20 @@ export default function RootLayout({
         <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
             <body className="bg-brand-cream text-brand-brown font-body antialiased overflow-x-hidden selection:bg-brand-green selection:text-white">
                 <LanguageProvider>
-                    <SmoothScroll>
-                        <Navigation />
-                        {children}
-                        <Footer />
-                    </SmoothScroll>
+                    <CartProvider>
+                        <ToastProvider>
+                            <SmoothScroll>
+                                <Navigation />
+                                <PageTransition>
+                                    {children}
+                                </PageTransition>
+                                <Footer />
+                            </SmoothScroll>
+                            <CartDrawer />
+                            <WhatsAppFAB />
+                            <BackToTop />
+                        </ToastProvider>
+                    </CartProvider>
                 </LanguageProvider>
             </body>
         </html>
