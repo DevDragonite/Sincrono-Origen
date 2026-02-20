@@ -8,16 +8,22 @@ import ProductModal from '@/components/ui/ProductModal';
 import { useState, useEffect } from 'react';
 import { useCart } from '@/lib/CartContext';
 import { useToast } from '@/components/ui/ToastNotification';
+import { useLenis } from 'lenis/react';
 
 export default function ProductsPage() {
     const { t, language } = useLanguage();
     const { addItem } = useCart();
     const { showToast } = useToast();
+    const lenis = useLenis();
 
     // Smooth scroll to top on page mount for consistent transitions
     useEffect(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, []);
+        if (lenis) {
+            lenis.scrollTo(0, { lerp: 0.1, duration: 1.5 });
+        } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    }, [lenis]);
 
     const [selectedProduct, setSelectedProduct] = useState<any>(null);
     const [filter, setFilter] = useState<"all" | "Arabica" | "Robusta">("all");
