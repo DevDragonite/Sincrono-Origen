@@ -16,7 +16,7 @@ import { motion } from 'framer-motion';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
     const heroRef = useRef(null);
     const textRef = useRef(null);
 
@@ -107,15 +107,48 @@ export default function Home() {
             {/* Trust / Stats Section */}
             <TrustSection />
 
-            {/* Story/Origin Teaser */}
-            <section className="py-32 px-4 bg-brand-brown text-brand-cream relative overflow-hidden">
-                <div className="container mx-auto max-w-4xl text-center relative z-10">
-                    <h2 className="font-display text-4xl md:text-6xl mb-8 whitespace-pre-line">{t.story.title}</h2>
-                    <p className="text-xl opacity-80 leading-relaxed">
-                        {t.story.description}
+            {/* Barista Testimonial Section */}
+            <section className="py-24 md:py-32 px-4 bg-brand-brown text-brand-cream relative overflow-hidden mb-0">
+                <div className="absolute inset-0 opacity-10 mix-blend-soft-light bg-[url('/noise.png')] pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-b from-brand-brown via-brand-brown/95 to-brand-brown pointer-events-none" />
+
+                <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    className="container mx-auto max-w-3xl text-center relative z-10"
+                >
+                    <p className="text-xs font-bold tracking-[0.3em] uppercase text-brand-green mb-4">
+                        {language === "es" ? "Validación de Expertos" : "Expert Validation"}
                     </p>
-                </div>
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2, duration: 0.7 }}
+                        className="font-display text-3xl md:text-5xl lg:text-6xl mb-8 leading-tight"
+                    >
+                        {language === "es"
+                            ? "Lo que Baristas Están Hablando"
+                            : "What Baristas Are Talking About"}
+                    </motion.h2>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.4, duration: 0.7 }}
+                        className="text-base md:text-xl opacity-80 leading-relaxed italic"
+                    >
+                        {language === "es"
+                            ? "\"Baristas de Caracas, Miami y Madrid ya lo saben. Cuando buscan un perfil único para competencias o cartas de temporada, encuentran en Síncrono lo que otros no pueden replicar.\""
+                            : "\"Baristas in Caracas, Miami and Madrid already know. When they look for a unique profile for competitions or seasonal menus, they find in Síncrono what others can't replicate.\""}
+                    </motion.p>
+                </motion.div>
             </section>
+
+            {/* Spacer before footer */}
+            <div className="h-16 md:h-24 bg-brand-cream" />
 
         </main>
     );

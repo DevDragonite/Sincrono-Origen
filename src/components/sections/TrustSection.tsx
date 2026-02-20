@@ -104,11 +104,16 @@ export default function TrustSection() {
                     className="text-center mb-14"
                 >
                     <p className="text-xs font-bold tracking-[0.3em] uppercase text-brand-green mb-3">
-                        {language === "es" ? "Nuestra Trayectoria" : "Our Track Record"}
+                        {language === "es" ? "¿Por Qué Nosotros?" : "Why Us?"}
                     </p>
-                    <h2 className="font-display text-3xl md:text-5xl">
-                        {language === "es" ? "Confianza en Cada Grano" : "Trust in Every Bean"}
+                    <h2 className="font-display text-3xl md:text-5xl mb-4">
+                        {language === "es" ? "Sabor que se Siente" : "Flavor You Can Feel"}
                     </h2>
+                    <p className="text-brand-roast text-sm md:text-base leading-relaxed max-w-2xl mx-auto">
+                        {language === "es"
+                            ? "No todos los cafés de especialidad son iguales. El nuestro nace en suelo volcánico venezolano, cosechado a mano y tostado con datos precisos. El resultado: una taza que no solo pruebas, sino que sientes."
+                            : "Not all specialty coffees are created equal. Ours is born in Venezuelan volcanic soil, hand-harvested and roasted with precise data. The result: a cup you don't just taste — you feel."}
+                    </p>
                 </motion.div>
 
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">

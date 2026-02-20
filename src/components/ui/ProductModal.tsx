@@ -100,7 +100,7 @@ export default function ProductModal({ isOpen, onClose, product, labels }: Produ
                     </button>
 
                     {/* Scrollable Content */}
-                    <div className="overflow-y-auto flex-1">
+                    <div className="overflow-y-auto flex-1 min-h-0">
                         <div className="flex flex-col md:flex-row">
                             {/* Product Image */}
                             <div className="w-full md:w-1/3 bg-white flex items-center justify-center p-3 md:p-6 shrink-0">
@@ -110,7 +110,7 @@ export default function ProductModal({ isOpen, onClose, product, labels }: Produ
                             </div>
 
                             {/* Content */}
-                            <div className="w-full md:w-2/3 p-4 md:p-6">
+                            <div className="w-full md:w-2/3 p-4 md:p-6 pb-2">
                                 {/* Type Badge */}
                                 <span className="text-[10px] md:text-xs font-bold tracking-widest uppercase text-brand-green">{product.type}</span>
 
@@ -120,7 +120,7 @@ export default function ProductModal({ isOpen, onClose, product, labels }: Produ
 
                                 {/* Story OR Data Grid */}
                                 {story ? (
-                                    <div className="bg-brand-brown/5 rounded-lg p-3 mb-3 border-l-3 border-brand-green">
+                                    <div className="bg-brand-brown/5 rounded-lg p-3 border-l-3 border-brand-green">
                                         <p className="text-[10px] md:text-xs font-bold tracking-widest uppercase text-brand-green mb-1.5">
                                             {language === "es" ? "Historia de Cosecha" : "Harvest Story"}
                                         </p>
@@ -129,7 +129,7 @@ export default function ProductModal({ isOpen, onClose, product, labels }: Produ
                                         </p>
                                     </div>
                                 ) : (
-                                    <div className="grid grid-cols-2 gap-3 mb-3">
+                                    <div className="grid grid-cols-2 gap-3">
                                         <div>
                                             <div className="text-[9px] md:text-[10px] font-bold text-brand-brown/40 uppercase mb-0.5">{labels.origin}</div>
                                             <div className="text-brand-brown font-medium text-xs md:text-sm">{product.origin}</div>
@@ -148,25 +148,29 @@ export default function ProductModal({ isOpen, onClose, product, labels }: Produ
                                         </div>
                                     </div>
                                 )}
-
-                                {/* Price + Buttons */}
-                                <div className="pt-3 border-t border-brand-brown/10 space-y-2">
-                                    <div className="font-mono text-lg md:text-xl text-brand-copper">{product.price}</div>
-                                    <button
-                                        onClick={handleAddToCart}
-                                        className="w-full bg-brand-brown text-brand-cream px-4 py-2.5 rounded-lg hover:bg-brand-green transition-colors uppercase text-[10px] md:text-xs font-bold tracking-widest"
-                                    >
-                                        {labels.cta}
-                                    </button>
-                                    <button
-                                        onClick={handleWhatsApp}
-                                        className="w-full bg-[#25D366] text-white px-4 py-2.5 rounded-lg hover:bg-[#20BD5A] transition-colors uppercase text-[10px] md:text-xs font-bold tracking-widest flex items-center justify-center gap-2"
-                                    >
-                                        <MessageCircle size={14} />
-                                        {language === "es" ? "Consultar por WhatsApp" : "Ask via WhatsApp"}
-                                    </button>
-                                </div>
                             </div>
+                        </div>
+                    </div>
+
+                    {/* Sticky Footer - Always visible */}
+                    <div className="border-t border-brand-brown/10 p-3 md:p-4 space-y-2 shrink-0 bg-brand-cream">
+                        <div className="flex items-center justify-between mb-1">
+                            <span className="font-mono text-lg md:text-xl text-brand-copper">{product.price}</span>
+                        </div>
+                        <div className="flex gap-2">
+                            <button
+                                onClick={handleAddToCart}
+                                className="flex-1 bg-brand-brown text-brand-cream px-3 py-2.5 rounded-lg hover:bg-brand-green transition-colors uppercase text-[10px] md:text-xs font-bold tracking-widest"
+                            >
+                                {labels.cta}
+                            </button>
+                            <button
+                                onClick={handleWhatsApp}
+                                className="flex-1 bg-[#25D366] text-white px-3 py-2.5 rounded-lg hover:bg-[#20BD5A] transition-colors uppercase text-[10px] md:text-xs font-bold tracking-widest flex items-center justify-center gap-1.5"
+                            >
+                                <MessageCircle size={14} />
+                                <span className="hidden sm:inline">{language === "es" ? "WhatsApp" : "WhatsApp"}</span>
+                            </button>
                         </div>
                     </div>
                 </motion.div>
