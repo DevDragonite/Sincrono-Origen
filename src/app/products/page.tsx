@@ -45,7 +45,7 @@ export default function ProductsPage() {
 
     return (
         <main className="min-h-screen pt-32 pb-16 px-4 md:px-8 bg-brand-cream text-brand-brown">
-            <div className="container mx-auto">
+            <div className="container mx-auto max-w-5xl">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -67,8 +67,8 @@ export default function ProductsPage() {
                             key={f.key}
                             onClick={() => setFilter(f.key)}
                             className={`px-5 py-2 text-xs font-bold uppercase tracking-widest rounded-full border transition-all duration-300 ${filter === f.key
-                                    ? "bg-brand-brown text-brand-cream border-brand-brown"
-                                    : "border-brand-brown/20 text-brand-roast hover:border-brand-brown/50"
+                                ? "bg-brand-brown text-brand-cream border-brand-brown"
+                                : "border-brand-brown/20 text-brand-roast hover:border-brand-brown/50"
                                 }`}
                         >
                             {f.label}
@@ -76,7 +76,7 @@ export default function ProductsPage() {
                     ))}
                 </motion.div>
 
-                <motion.div layout className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-x-4 md:gap-x-8 gap-y-8 md:gap-y-16">
+                <motion.div layout className="grid grid-cols-2 lg:grid-cols-3 gap-x-4 md:gap-x-6 gap-y-6 md:gap-y-10">
                     <AnimatePresence mode="popLayout">
                         {filteredProducts.map((p: any, i: number) => (
                             <motion.div
@@ -89,18 +89,18 @@ export default function ProductsPage() {
                                 className="group cursor-pointer"
                                 onClick={() => setSelectedProduct(p)}
                             >
-                                <div className="aspect-square md:aspect-[3/4] bg-white border border-brand-brown/10 mb-3 md:mb-6 relative overflow-hidden transition-all duration-500 group-hover:border-brand-copper flex items-center justify-center p-4 md:p-8 rounded-lg">
+                                <div className="aspect-square md:aspect-[4/5] bg-white border border-brand-brown/10 mb-3 md:mb-4 relative overflow-hidden transition-all duration-500 group-hover:border-brand-copper flex items-center justify-center p-4 md:p-6 rounded-lg">
                                     <ProductMockup
                                         color={p.type === 'Robusta' ? "#2A1810" : i % 3 === 0 ? "#3D2B1F" : i % 3 === 1 ? "#2D5A27" : "#1A1A1A"}
                                         accent={p.type === 'Robusta' ? "#C65D3B" : i % 3 === 0 ? "#D4AF37" : i % 3 === 1 ? "#C0D860" : "#E5E5E5"}
-                                        className="transition-transform duration-500 group-hover:scale-105"
+                                        className="transition-transform duration-500 group-hover:scale-105 max-h-[200px] md:max-h-[260px]"
                                     />
                                     <div className="absolute inset-0 bg-brand-brown/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                                 </div>
 
                                 <div className="flex justify-between items-start">
                                     <div>
-                                        <h3 className="font-display text-sm md:text-xl mb-1">{p.name}</h3>
+                                        <h3 className="font-display text-sm md:text-lg mb-1">{p.name}</h3>
                                         <p className="text-[10px] md:text-xs text-brand-roast max-w-[200px] hidden md:block">{p.desc}</p>
                                     </div>
                                     <span className="font-mono text-xs md:text-sm">{p.price}</span>
@@ -108,7 +108,7 @@ export default function ProductsPage() {
 
                                 <button
                                     onClick={(e) => handleAddToCart(e, p)}
-                                    className="w-full mt-3 md:mt-6 py-2 md:py-3 border border-brand-brown/20 text-[10px] md:text-xs font-bold uppercase hover:bg-brand-brown hover:text-white transition-all md:opacity-0 md:group-hover:opacity-100 md:translate-y-2 md:group-hover:translate-y-0 text-center"
+                                    className="w-full mt-2 md:mt-4 py-2 md:py-2.5 border border-brand-brown/20 text-[10px] md:text-xs font-bold uppercase hover:bg-brand-brown hover:text-white transition-all md:opacity-0 md:group-hover:opacity-100 md:translate-y-2 md:group-hover:translate-y-0 text-center rounded-lg"
                                 >
                                     {t.products?.cta}
                                 </button>

@@ -42,7 +42,7 @@ export default function TraceabilitySection() {
                     </div>
 
                     {/* Right Side - Image/Illustration - Centered in column for balance */}
-                    <div className="w-full flex justify-center items-center order-first lg:order-last">
+                    <div className="w-full flex justify-center items-center lg:order-last">
                         <div className="relative w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-brand-cream/10 shadow-2xl">
                             <Image
                                 src="/images/hands-cherries.jpg"

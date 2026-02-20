@@ -4,6 +4,7 @@ import Image from 'next/image';
 import MagneticButton from '@/components/ui/MagneticButton';
 import TraceabilitySection from '@/components/sections/TraceabilitySection';
 import ProductsSection from '@/components/sections/ProductsSection';
+import TrustSection from '@/components/sections/TrustSection';
 import HeroBackground from '@/components/ui/illustrations/HeroBackground';
 import CoffeeCropsIllustration from '@/components/ui/illustrations/CoffeeCropsIllustration';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
@@ -103,7 +104,10 @@ export default function Home() {
             {/* Products & Collection */}
             <ProductsSection />
 
-            {/* Story/Origin Teaser (New content to be expanded) */}
+            {/* Trust / Stats Section */}
+            <TrustSection />
+
+            {/* Story/Origin Teaser */}
             <section className="py-32 px-4 bg-brand-brown text-brand-cream relative overflow-hidden">
                 <div className="container mx-auto max-w-4xl text-center relative z-10">
                     <h2 className="font-display text-4xl md:text-6xl mb-8 whitespace-pre-line">{t.story.title}</h2>

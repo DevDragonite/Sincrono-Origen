@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
-const WHATSAPP_NUMBER = "584121234567"; // Cambiar al número real
+const WHATSAPP_NUMBER = "584141121470";
 const DEFAULT_MESSAGE = "¡Hola! Me interesa conocer más sobre los cafés de Síncrono Origen 🌿☕";
 
 export default function WhatsAppFAB() {

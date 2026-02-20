@@ -5,7 +5,7 @@ import { X, Minus, Plus, Trash2, ShoppingBag, MessageCircle } from "lucide-react
 import { useCart } from "@/lib/CartContext";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 
-const WHATSAPP_NUMBER = "584121234567"; // Cambiar al número real
+const WHATSAPP_NUMBER = "584141121470";
 
 export default function CartDrawer() {
     const { items, isCartOpen, setIsCartOpen, removeItem, updateQuantity, totalItems, totalPrice, clearCart } = useCart();

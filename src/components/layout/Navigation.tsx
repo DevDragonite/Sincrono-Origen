@@ -115,13 +115,17 @@ export default function Navigation() {
                     >
                         {t.nav.blog}
                     </Link>
-                    <Link
-                        href="#contact"
+                    <button
                         className="text-2xl font-display text-brand-cream hover:text-brand-copper transition-colors"
-                        onClick={() => setMobileMenuOpen(false)}
+                        onClick={() => {
+                            setMobileMenuOpen(false);
+                            setTimeout(() => {
+                                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                            }, 300);
+                        }}
                     >
                         {t.nav.contact}
-                    </Link>
+                    </button>
 
                     <div className="mt-8">
                         <LanguageToggle scrolled={true} />
@@ -140,9 +144,12 @@ export default function Navigation() {
                 <Link href="/blog" className={isActive('/blog')}>
                     {t.nav.blog}
                 </Link>
-                <Link href="#contact" className={isActive('#contact')}>
+                <button
+                    className={isActive('#contact')}
+                    onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                >
                     {t.nav.contact}
-                </Link>
+                </button>
 
                 {/* Cart Button Desktop */}
                 <button
