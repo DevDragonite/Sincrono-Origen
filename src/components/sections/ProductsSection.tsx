@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 import ProductMockup from '../ui/illustrations/ProductMockup';
 import ProductModal from '../ui/ProductModal';
-import { useState, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import { useCart } from '@/lib/CartContext';
 import { useToast } from '../ui/ToastNotification';
 import Link from 'next/link';
@@ -19,12 +19,12 @@ export default function ProductsSection() {
 
     const products = t.products?.items || [];
 
-    // Shuffle and pick 3 random products (changes on each page load / language switch)
-    const randomProducts = useMemo(() => {
+    // Client-only shuffle to avoid hydration mismatch (Math.random differs server vs client)
+    const [randomProducts, setRandomProducts] = useState<any[]>([]);
+    useEffect(() => {
         const shuffled = [...products].sort(() => Math.random() - 0.5);
-        return shuffled.slice(0, 3);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [language]);
+        setRandomProducts(shuffled.slice(0, 3));
+    }, [language]); // eslint-disable-line react-hooks/exhaustive-deps
 
     const handleAddToCart = (e: React.MouseEvent, p: any) => {
         e.stopPropagation();

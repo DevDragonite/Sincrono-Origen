@@ -2,23 +2,34 @@
 
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { calculateExtractionYield } from '@/lib/traceability';
-import CoffeeCherryIllustration from '../ui/illustrations/CoffeeCherryIllustration';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
+
+const images = [
+    { src: "/images/sincro-folleto.jpeg", alt: "Folleto Síncrono Origen" },
+    { src: "/images/sincro-edificio.jpeg", alt: "Edificio Síncrono Origen" },
+    { src: "/images/sincro-empaque.jpeg", alt: "Empaque Síncrono Origen" },
+];
 
 export default function TraceabilitySection() {
     const { t } = useLanguage();
     const [mounted, setMounted] = useState(false);
-    const [bgPattern, setBgPattern] = useState<string[]>([]);
+    const [currentImage, setCurrentImage] = useState(0);
 
     useEffect(() => {
         setMounted(true);
-        // Generate random pattern only on client
-        setBgPattern(Array.from({ length: 100 }).map(() => `${Math.random().toString(16).substring(2)} // DATA_STREAM // ${Math.random().toFixed(4)}`));
     }, []);
 
-    if (!mounted) return null; // Prevent hydration mismatch on initial render if needed, or just render static content
+    // Rotate images every 4 seconds
+    useEffect(() => {
+        if (!mounted) return;
+        const interval = setInterval(() => {
+            setCurrentImage((prev) => (prev + 1) % images.length);
+        }, 4000);
+        return () => clearInterval(interval);
+    }, [mounted]);
+
+    if (!mounted) return null;
 
     return (
         <section className="py-24 bg-brand-brown text-brand-cream border-t border-brand-roast relative overflow-hidden">
@@ -41,20 +52,46 @@ export default function TraceabilitySection() {
                         </p>
                     </div>
 
-                    {/* Right Side - Image/Illustration - Centered in column for balance */}
+                    {/* Right Side - Rotating Image Slideshow */}
                     <div className="w-full flex justify-center items-center lg:order-last">
                         <div className="relative w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-brand-cream/10 shadow-2xl">
-                            <Image
-                                src="/images/hands-cherries.jpg"
-                                alt="Manos recolectando cerezas de café"
-                                fill
-                                className="object-cover hover:scale-105 transition-transform duration-700"
-                            />
+                            <AnimatePresence mode="wait">
+                                <motion.div
+                                    key={currentImage}
+                                    initial={{ opacity: 0, scale: 1.1 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    exit={{ opacity: 0, scale: 0.95 }}
+                                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                                    className="absolute inset-0"
+                                >
+                                    <Image
+                                        src={images[currentImage].src}
+                                        alt={images[currentImage].alt}
+                                        fill
+                                        className="object-cover"
+                                        sizes="(max-width: 1024px) 320px, 384px"
+                                    />
+                                </motion.div>
+                            </AnimatePresence>
+
+                            {/* Dot indicators */}
+                            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                                {images.map((_, i) => (
+                                    <button
+                                        key={i}
+                                        onClick={() => setCurrentImage(i)}
+                                        className={`w-2 h-2 rounded-full transition-all duration-300 ${i === currentImage
+                                                ? "bg-brand-cream w-5"
+                                                : "bg-brand-cream/40 hover:bg-brand-cream/60"
+                                            }`}
+                                    />
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-        </section >
+        </section>
     );
 }
