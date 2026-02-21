@@ -13,18 +13,38 @@ import {
     Coffee
 } from "lucide-react";
 import { motion } from "framer-motion";
+import { useEffect, useState, useMemo } from "react";
+import { supabase } from "@/lib/supabase";
+
+// Añadimos la interfaz de la transacción de Command Center
+interface Transaction {
+    id: string;
+    date: string;
+    amount: number;
+    currency: 'USD' | 'VES';
+    exchange_rate: number | null;
+    type: 'INGRESO' | 'EGRESO';
+    status: 'ACTIVO' | 'ANULADO';
+    business_id: string;
+    concept: string;
+    client_provider?: string;
+    created_at?: string;
+}
 
 const stats = [
+    // Las "Ventas del Mes" reales se inyectarán dinámicamente arriba de este array
     {
+        id: "ventas-mes",
         label: "Ventas del Mes",
-        value: "$4,280",
-        change: "+12.5%",
+        value: "$0",
+        change: "En vivo",
         up: true,
         icon: DollarSign,
         color: "from-emerald-500/20 to-emerald-500/5",
         iconColor: "text-emerald-400"
     },
     {
+        id: "pedidos-pendientes",
         label: "Pedidos Pendientes",
         value: "23",
         change: "+3",
@@ -34,6 +54,7 @@ const stats = [
         iconColor: "text-amber-400"
     },
     {
+        id: "productos-activos",
         label: "Productos Activos",
         value: "6",
         change: "0",
@@ -43,6 +64,7 @@ const stats = [
         iconColor: "text-blue-400"
     },
     {
+        id: "visitantes-hoy",
         label: "Visitantes Hoy",
         value: "142",
         change: "+8.3%",
@@ -69,6 +91,105 @@ const topProducts = [
 ];
 
 export default function AdminDashboard() {
+    const [transactions, setTransactions] = useState<Transaction[]>([]);
+
+    useEffect(() => {
+        // Cargar data inicial histórica solo para Síncrono Café
+        const fetchInitial = async () => {
+            const { data } = await supabase
+                .from('transactions')
+                .select('*')
+                .eq('business_id', 'cafe')
+                .order('created_at', { ascending: false });
+
+            if (data) setTransactions(data);
+        };
+
+        fetchInitial();
+
+        // Suscribirse a los cambios en tiempo real
+        const channel = supabase.channel('sincrono-dashboard')
+            .on(
+                'postgres_changes',
+                { event: '*', schema: 'public', table: 'transactions', filter: "business_id=eq.cafe" },
+                (payload) => {
+                    const eventType = payload.eventType;
+                    const newRecord = payload.new as Transaction;
+
+                    setTransactions(prev => {
+                        if (eventType === 'INSERT') return [newRecord, ...prev];
+                        if (eventType === 'UPDATE') return prev.map(t => t.id === newRecord.id ? newRecord : t);
+                        // DELETE no lo manejamos porque hacemos soft-delete (ANULADO)
+                        return prev;
+                    });
+                }
+            )
+            .subscribe();
+
+        return () => {
+            supabase.removeChannel(channel);
+        };
+    }, []);
+
+    // Calcular las Ventas Reales (Ingresos Activos)
+    const realRevenue = useMemo(() => {
+        const ingresos = transactions.filter(t => t.type === 'INGRESO' && t.status !== 'ANULADO');
+        return ingresos.reduce((total, t) => {
+            let usdAmount = t.amount;
+            if (t.currency === 'VES' && t.exchange_rate) {
+                usdAmount = t.amount / t.exchange_rate;
+            }
+            return total + usdAmount;
+        }, 0);
+    }, [transactions]);
+
+    // Dinamizar el primer stat (Ventas del Mes) con la data real de Supabase
+    const dynamicStats = stats.map(st => {
+        if (st.id === "ventas-mes") {
+            return {
+                ...st,
+                value: `$${realRevenue.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
+            }
+        }
+        return st;
+    });
+
+    // Generar la lista de "Pedidos Recientes" basándonos en las últimas 5 transacciones
+    const dynamicRecentOrders = useMemo(() => {
+        // Ordenar explícitamente por fecha/creación descendente (más nuevo primero)
+        const sortedTransactions = [...transactions].sort((a, b) => {
+            const timeA = new Date(a.created_at || a.date).getTime();
+            const timeB = new Date(b.created_at || b.date).getTime();
+            return timeB - timeA;
+        });
+
+        return sortedTransactions.slice(0, 5).map(t => {
+            let status = "Completado";
+            let statusColor = "bg-emerald-500/20 text-emerald-400";
+
+            if (t.status === 'ANULADO') {
+                status = "Anulado";
+                statusColor = "bg-red-500/20 text-red-400";
+            } else if (t.type === 'EGRESO') {
+                status = "Egreso";
+                statusColor = "bg-zinc-500/20 text-zinc-400";
+            }
+
+            const amountInUsd = t.currency === 'VES' && t.exchange_rate ? t.amount / t.exchange_rate : t.amount;
+            const formattedTotal = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(amountInUsd);
+
+            return {
+                id: `#${t.id.split('-')[0].toUpperCase()}`,
+                customer: t.client_provider || "Cliente en Local",
+                product: t.concept,
+                total: formattedTotal,
+                status,
+                statusColor,
+                isAnulado: t.status === 'ANULADO'
+            };
+        });
+    }, [transactions]);
+
     return (
         <div className="p-8 space-y-8">
             {/* Header */}
@@ -79,7 +200,7 @@ export default function AdminDashboard() {
 
             {/* Stats Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                {stats.map((stat, i) => (
+                {dynamicStats.map((stat, i) => (
                     <motion.div
                         key={i}
                         initial={{ opacity: 0, y: 20 }}
@@ -121,17 +242,17 @@ export default function AdminDashboard() {
                         <button className="text-xs text-brand-green hover:text-brand-green/80 transition-colors font-medium">Ver todos</button>
                     </div>
                     <div className="divide-y divide-white/5">
-                        {recentOrders.map((order, i) => (
-                            <div key={i} className="flex items-center justify-between px-5 py-3.5 hover:bg-white/[0.02] transition-colors">
+                        {dynamicRecentOrders.map((order, i) => (
+                            <div key={i} className={`flex items-center justify-between px-5 py-3.5 hover:bg-white/[0.02] transition-colors ${order.isAnulado ? 'opacity-50 grayscale' : ''}`}>
                                 <div className="flex items-center gap-4">
                                     <span className="text-xs font-mono text-white/30">{order.id}</span>
                                     <div>
-                                        <div className="text-sm text-white font-medium">{order.customer}</div>
-                                        <div className="text-xs text-white/40 mt-0.5">{order.product}</div>
+                                        <div className={`text-sm text-white font-medium ${order.isAnulado ? 'line-through' : ''}`}>{order.customer}</div>
+                                        <div className={`text-xs text-white/40 mt-0.5 ${order.isAnulado ? 'line-through' : ''}`}>{order.product}</div>
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-4">
-                                    <span className="font-mono text-sm text-white/70">{order.total}</span>
+                                    <span className={`font-mono text-sm ${order.isAnulado ? 'line-through text-white/40' : 'text-white/70'}`}>{order.total}</span>
                                     <span className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full ${order.statusColor}`}>
                                         {order.status}
                                     </span>
