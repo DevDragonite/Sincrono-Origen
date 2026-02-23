@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Playfair_Display, Inter } from 'next/font/google';
+import React from 'react';
 import './globals.css';
 
 const playfair = Playfair_Display({
@@ -23,6 +24,8 @@ import SmoothScroll from '../components/ui/SmoothScroll';
 import Footer from '../components/layout/Footer';
 import Navigation from '../components/layout/Navigation';
 import { LanguageProvider } from '@/lib/i18n/LanguageContext';
+
+export const dynamic = 'force-dynamic';
 import { CartProvider } from '@/lib/CartContext';
 import { ToastProvider } from '@/components/ui/ToastNotification';
 import CartDrawer from '@/components/ui/CartDrawer';
@@ -44,7 +47,9 @@ export default function RootLayout({
                             <SmoothScroll>
                                 <Navigation />
                                 <PageTransition>
-                                    {children}
+                                    <React.Suspense fallback={<div className="min-h-screen bg-brand-cream" />}>
+                                        {children}
+                                    </React.Suspense>
                                 </PageTransition>
                                 <Footer />
                             </SmoothScroll>
