@@ -1,0 +1,128 @@
+﻿
+> sincrono-app@0.1.0 lint
+> eslint
+
+
+C:\Users\Avenger\Documents\Cursor\Sincrono-Origen\_legacy\js\coffeeBean.js
+  26:15  warning  'creaseFactor' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Avenger\Documents\Cursor\Sincrono-Origen\_legacy\js\particles.js
+  8:11  warning  'opacities' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Avenger\Documents\Cursor\Sincrono-Origen\src\app\admin\allies\page.tsx
+  4:10  warning  'Users' is defined but never used  @typescript-eslint/no-unused-vars
+  4:36  warning  'Clock' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Avenger\Documents\Cursor\Sincrono-Origen\src\app\admin\orders\page.tsx
+   4:25  warning  'Search' is defined but never used        @typescript-eslint/no-unused-vars
+  33:55  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\Avenger\Documents\Cursor\Sincrono-Origen\src\app\admin\page.tsx
+   7:5  warning  'TrendingUp' is defined but never used             @typescript-eslint/no-unused-vars
+   8:5  warning  'Users' is defined but never used                  @typescript-eslint/no-unused-vars
+  78:7  warning  'recentOrders' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Avenger\Documents\Cursor\Sincrono-Origen\src\app\allies\page.tsx
+  26:154  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Avenger\Documents\Cursor\Sincrono-Origen\src\app\page.tsx
+  8:8  warning  'HeroBackground' is defined but never used           @typescript-eslint/no-unused-vars
+  9:8  warning  'CoffeeCropsIllustration' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Avenger\Documents\Cursor\Sincrono-Origen\src\app\products\page.tsx
+   3:8   warning  'Image' is defined but never used         @typescript-eslint/no-unused-vars
+  28:60  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  34:31  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  42:54  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  92:51  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\Avenger\Documents\Cursor\Sincrono-Origen\src\components\layout\Footer.tsx
+  3:8  warning  'Image' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Avenger\Documents\Cursor\Sincrono-Origen\src\components\sections\ProductsSection.tsx
+  18:60  error  Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  @typescript-eslint/no-explicit-any
+  23:58  error  Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  @typescript-eslint/no-explicit-any
+  26:9   error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\Avenger\Documents\Cursor\Sincrono-Origen\src\components\sections\ProductsSection.tsx:26:9
+  24 |     useEffect(() => {
+  25 |         const shuffled = [...products].sort(() => Math.random() - 0.5);
+> 26 |         setRandomProducts(shuffled.slice(0, 3));
+     |         ^^^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  27 |     }, [language]); // eslint-disable-line react-hooks/exhaustive-deps
+  28 |
+  29 |     const handleAddToCart = (e: React.MouseEvent, p: any) => {  react-hooks/set-state-in-effect
+  29:54  error  Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  @typescript-eslint/no-explicit-any
+  49:45  error  Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  @typescript-eslint/no-explicit-any
+
+C:\Users\Avenger\Documents\Cursor\Sincrono-Origen\src\components\sections\TraceabilitySection.tsx
+  20:9  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\Avenger\Documents\Cursor\Sincrono-Origen\src\components\sections\TraceabilitySection.tsx:20:9
+  18 |
+  19 |     useEffect(() => {
+> 20 |         setMounted(true);
+     |         ^^^^^^^^^^ Avoid calling setState() directly within an effect
+  21 |     }, []);
+  22 |
+  23 |     // Rotate images every 4 seconds  react-hooks/set-state-in-effect
+
+C:\Users\Avenger\Documents\Cursor\Sincrono-Origen\src\components\ui\CartDrawer.tsx
+  12:13  warning  't' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Avenger\Documents\Cursor\Sincrono-Origen\src\components\ui\ProductModal.tsx
+  44:13  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\Avenger\Documents\Cursor\Sincrono-Origen\src\components\ui\illustrations\ProductMockup.tsx
+  15:5  warning  'label' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Avenger\Documents\Cursor\Sincrono-Origen\src\lib\CartContext.tsx
+  56:17  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\Avenger\Documents\Cursor\Sincrono-Origen\src\lib\CartContext.tsx:56:17
+  54 |             const saved = localStorage.getItem(CART_KEY);
+  55 |             if (saved) {
+> 56 |                 setItems(JSON.parse(saved));
+     |                 ^^^^^^^^ Avoid calling setState() directly within an effect
+  57 |             }
+  58 |         } catch { }
+  59 |         setHydrated(true);  react-hooks/set-state-in-effect
+
+C:\Users\Avenger\Documents\Cursor\Sincrono-Origen\src\lib\i18n\LanguageContext.tsx
+  19:20  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\Avenger\Documents\Cursor\Sincrono-Origen\src\lib\i18n\LanguageContext.tsx:19:20
+  17 |     useEffect(() => {
+  18 |         const saved = localStorage.getItem('sincrono-lang') as Language;
+> 19 |         if (saved) setLanguage(saved);
+     |                    ^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  20 |     }, []);
+  21 |
+  22 |     const handleSetLanguage = (lang: Language) => {  react-hooks/set-state-in-effect
+
+Ô£û 29 problems (15 errors, 14 warnings)
+

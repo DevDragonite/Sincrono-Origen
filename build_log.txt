@@ -1,0 +1,68 @@
+﻿node.exe : ÔÜá 
+`eslint` configuration 
+in next.config.ts is 
+no longer supported. 
+See more info here: htt
+ps://nextjs.org/docs/ap
+p/api-reference/cli/nex
+t#next-lint-options
+En línea: 1 Carácter: 1
++ & "C:\Program 
+Files\nodejs/node.exe" 
+"C:\Program 
+Files\nodejs/node_mo 
+...
++ ~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
+~~
+    + CategoryInfo     
+         : NotSpecifi  
+  ed: (ÔÜá `eslint`    
+ co...xt-lint-optio    
+ns:String) [], Rem    
+oteException
+    + FullyQualifiedEr 
+   rorId : NativeComm  
+  andError
+ 
+ÔÜá Invalid 
+next.config.ts options 
+detected: 
+ÔÜá     Unrecognized 
+key(s) in object: 
+'eslint'
+ÔÜá See more info 
+here: https://nextjs.or
+g/docs/messages/invalid
+-next-config
+Ôû▓ Next.js 16.1.6 (Turbopack)
+- Environments: .env.local
+
+  Creating an optimized production build ...
+Ô£ô Compiled successfully in 4.9s
+  Skipping validation of types
+  Collecting page data using 7 workers ...
+  Generating static pages using 7 workers (0/12) ...
+  Generating static pages using 7 workers (3/12) 
+  Generating static pages using 7 workers (6/12) 
+  Generating static pages using 7 workers (9/12) 
+Ô£ô Generating static pages using 7 workers (12/12) in 782.6ms
+  Finalizing page optimization ...
+
+Route (app)
+Ôöî Ôùï /
+Ôö£ Ôùï /_not-found
+Ôö£ Ôùï /admin
+Ôö£ Ôùï /admin/allies
+Ôö£ Ôùï /admin/analytics
+Ôö£ Ôùï /admin/blog
+Ôö£ Ôùï /admin/orders
+Ôö£ Ôùï /admin/products
+Ôö£ Ôùï /allies
+Ôö£ Ôùï /blog
+Ôöö Ôùï /products
+
+
+Ôùï  (Static)  prerendered as static content
+

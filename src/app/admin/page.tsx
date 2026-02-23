@@ -15,6 +15,7 @@ import {
 import { motion } from "framer-motion";
 import { useEffect, useState, useMemo } from "react";
 import { supabase } from "@/lib/supabase";
+import Link from "next/link";
 
 // Añadimos la interfaz de la transacción de Command Center
 interface Transaction {
@@ -41,17 +42,19 @@ const stats = [
         up: true,
         icon: DollarSign,
         color: "from-emerald-500/20 to-emerald-500/5",
-        iconColor: "text-emerald-400"
+        iconColor: "text-emerald-400",
+        href: "/admin/analytics"
     },
     {
         id: "pedidos-pendientes",
-        label: "Pedidos Pendientes",
-        value: "23",
-        change: "+3",
+        label: "Operaciones (Mes)",
+        value: "0",
+        change: "En vivo",
         up: true,
         icon: ClipboardList,
         color: "from-amber-500/20 to-amber-500/5",
-        iconColor: "text-amber-400"
+        iconColor: "text-amber-400",
+        href: "/admin/orders"
     },
     {
         id: "productos-activos",
@@ -61,7 +64,8 @@ const stats = [
         up: true,
         icon: Package,
         color: "from-blue-500/20 to-blue-500/5",
-        iconColor: "text-blue-400"
+        iconColor: "text-blue-400",
+        href: "/admin/products"
     },
     {
         id: "visitantes-hoy",
@@ -71,7 +75,8 @@ const stats = [
         up: true,
         icon: Eye,
         color: "from-purple-500/20 to-purple-500/5",
-        iconColor: "text-purple-400"
+        iconColor: "text-purple-400",
+        href: "/admin/analytics"
     },
 ];
 
@@ -143,12 +148,19 @@ export default function AdminDashboard() {
         }, 0);
     }, [transactions]);
 
-    // Dinamizar el primer stat (Ventas del Mes) con la data real de Supabase
+    // Dinamizar el primer stat (Ventas del Mes) y el segundo (Operaciones/Pedidos)
     const dynamicStats = stats.map(st => {
         if (st.id === "ventas-mes") {
             return {
                 ...st,
                 value: `$${realRevenue.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
+            }
+        }
+        if (st.id === "pedidos-pendientes") {
+            const numOrders = transactions.filter(t => t.type === 'INGRESO' && t.status !== 'ANULADO').length;
+            return {
+                ...st,
+                value: numOrders.toString()
             }
         }
         return st;
@@ -201,28 +213,29 @@ export default function AdminDashboard() {
             {/* Stats Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 {dynamicStats.map((stat, i) => (
-                    <motion.div
-                        key={i}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: i * 0.1 }}
-                        className="relative bg-[#1C1C26] border border-white/5 rounded-2xl p-5 overflow-hidden group hover:border-white/10 transition-colors"
-                    >
-                        <div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-100 transition-opacity`} />
-                        <div className="relative z-10">
-                            <div className="flex items-center justify-between mb-4">
-                                <div className={`w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center ${stat.iconColor}`}>
-                                    <stat.icon size={20} />
+                    <Link href={stat.href} key={i}>
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: i * 0.1 }}
+                            className="relative bg-[#1C1C26] border border-white/5 rounded-2xl p-5 overflow-hidden group hover:border-white/20 hover:bg-white/[0.02] transition-all cursor-pointer h-full block"
+                        >
+                            <div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-100 transition-opacity`} />
+                            <div className="relative z-10">
+                                <div className="flex items-center justify-between mb-4">
+                                    <div className={`w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center ${stat.iconColor}`}>
+                                        <stat.icon size={20} />
+                                    </div>
+                                    <div className={`flex items-center gap-1 text-xs font-semibold ${stat.up ? "text-emerald-400" : "text-amber-400"}`}>
+                                        {stat.up ? <ArrowUpRight size={14} /> : <ArrowDownRight size={14} />}
+                                        {stat.change}
+                                    </div>
                                 </div>
-                                <div className={`flex items-center gap-1 text-xs font-semibold ${stat.up ? "text-emerald-400" : "text-red-400"}`}>
-                                    {stat.up ? <ArrowUpRight size={14} /> : <ArrowDownRight size={14} />}
-                                    {stat.change}
-                                </div>
+                                <div className="text-2xl font-bold text-white mb-1">{stat.value}</div>
+                                <div className="text-xs text-white/40">{stat.label}</div>
                             </div>
-                            <div className="text-2xl font-bold text-white mb-1">{stat.value}</div>
-                            <div className="text-xs text-white/40">{stat.label}</div>
-                        </div>
-                    </motion.div>
+                        </motion.div>
+                    </Link>
                 ))}
             </div>
 
