@@ -8,17 +8,17 @@ export const dictionary = {
             contact: "Contact"
         },
         hero: {
-            title: "REBIRTH OF COFFEE",
-            title_desc: "Where tradition meets innovation.",
-            subtitle: "Cultivated in the Venezuelan peaks, perfected for your cup. A unique sensory experience.",
-            location: "Caracas /// 1800m /// Venezuela", // Will be replaced by images visually
-            cta: "Explore Collection",
+            title: "HIGH-ALTITUDE COFFEE",
+            title_desc: "Grown and roasted in the mountains of Venezuela.",
+            subtitle: "Single-origin beans, hand-harvested and roasted in small batches by three generations. A cup with soul.",
+            location: "Venezuela /// 1.600m /// Café de Altura",
+            cta: "Discover Our Coffees",
             origin: "Origin",
             process: "Process",
             cup: "Cup"
         },
         traceability: {
-            title: "CONSCIOUS EXTRACTION",
+            title: "FROM BEAN TO CUP",
             subtitle: "From Soil to Senses",
             formula_label: "Target Equation",
             calculated_yield: "Calculated Yield:",
@@ -37,73 +37,77 @@ export const dictionary = {
             altitude: "Altitude",
             notes: "Tasting Notes",
             items: [
-                // Arabicas
                 {
-                    id: "arabica_1",
-                    name: "Síncrono Blend",
-                    desc: "Red Bourbon / Caturra. Balanced and sweet.",
-                    price: "$34.00",
-                    origin: "Coastal Range",
+                    id: "origen",
+                    name: "Origen Único",
+                    image: "/imagenes/cafe_loma_origen.png",
+                    desc: "100% Arabica. Clean, balanced, single origin.",
+                    price: "$12.00",
+                    origin: "Colombia",
                     process: "Washed",
                     altitude: "1600m",
-                    notes: "Caramel, Citrus, Dark Chocolate",
+                    notes: "Caramel, Citrus, Cocoa",
                     type: "Arabica"
                 },
                 {
-                    id: "arabica_2",
-                    name: "Estate Origin",
-                    desc: "Single Varietal: Bourbon. Floral and delicate.",
-                    price: "$42.00",
-                    origin: "Cloud Forest",
+                    id: "seleccion",
+                    name: "Selección Especial",
+                    image: "/imagenes/cafe_loma_seleccion.png",
+                    desc: "Limited edition. Honey process, sweet body.",
+                    price: "$18.00",
+                    origin: "Venezuela",
                     process: "Honey",
                     altitude: "1800m",
-                    notes: "Jasmine, Honey, Apricot",
+                    notes: "Wild Honey, Apricot, Cane Sugar",
                     type: "Arabica"
                 },
                 {
-                    id: "arabica_3",
-                    name: "Geisha Lot",
-                    desc: "Experimental Fermentation. Exotic and complex.",
-                    price: "$65.00",
-                    origin: "High Peak",
-                    process: "Natural Anaerobic",
-                    altitude: "2100m",
-                    notes: "Bergamot, Lemongrass, Blueberry",
-                    type: "Arabica"
-                },
-                // Robustas
-                {
-                    id: "robusta_1",
-                    name: "Amazonian Bold",
-                    desc: "High-altitude Robusta. Intense and full-bodied.",
-                    price: "$28.00",
-                    origin: "Amazon Basin",
+                    id: "intenso",
+                    name: "Intenso",
+                    image: "/imagenes/cafe_loma_intenso.png",
+                    desc: "Intense roast. Bold character and strength.",
+                    price: "$11.00",
+                    origin: "Venezuela",
                     process: "Natural",
-                    altitude: "800m",
-                    notes: "Dark Cocoa, Spices, Earth",
-                    type: "Robusta"
+                    altitude: "1500m",
+                    notes: "Dark Chocolate, Toasted Nuts, Spice",
+                    type: "Arabica"
                 },
                 {
-                    id: "robusta_2",
-                    name: "Crema Suprema",
-                    desc: "Perfect for espresso. Thick crema and low acidity.",
-                    price: "$30.00",
-                    origin: "Lowlands",
+                    id: "oscuro",
+                    name: "Dark Roast",
+                    image: "/imagenes/cafe_loma_oscuro.png",
+                    desc: "Deep body with cocoa notes.",
+                    price: "$11.00",
+                    origin: "Venezuela",
+                    process: "Natural",
+                    altitude: "1400m",
+                    notes: "Cocoa, Molasses, Smoke",
+                    type: "Arabica"
+                },
+                {
+                    id: "descafeinado",
+                    name: "Decaf",
+                    image: "/imagenes/cafe_loma_descafeinado.png",
+                    desc: "All the flavor, no caffeine.",
+                    price: "$12.00",
+                    origin: "Venezuela",
                     process: "Washed",
-                    altitude: "900m",
-                    notes: "Walnut, Tobacco, Molasses",
-                    type: "Robusta"
+                    altitude: "1500m",
+                    notes: "Soft, Sweet, Almond",
+                    type: "Arabica"
                 },
                 {
-                    id: "robusta_3",
-                    name: "Energy Roast",
-                    desc: "Double caffeine content. For the active soul.",
-                    price: "$25.00",
-                    origin: "Valley Floor",
-                    process: "Honey",
-                    altitude: "700m",
-                    notes: "Peanut Butter, Toast, Malt",
-                    type: "Robusta"
+                    id: "variacion",
+                    name: "House Blend",
+                    image: "/imagenes/cafe_loma_variacion_1.png",
+                    desc: "Everyday house blend. Smooth and versatile.",
+                    price: "$10.00",
+                    origin: "Venezuela",
+                    process: "Mixed",
+                    altitude: "1500m",
+                    notes: "Balanced, Nutty, Mild",
+                    type: "Arabica"
                 }
             ]
         },
@@ -130,15 +134,15 @@ export const dictionary = {
             article2_desc: "How we use sensor data to replicate the perfect Maillard reaction every single time."
         },
         story: {
-            title: "Organic by Nature.\nPrecise by Design.",
-            description: "We don't just grow coffee; we engineer flavor profiles from the root up. Bridging the gap between the chaotic beauty of the cloud forest and the data-driven precision of your morning cup."
+            title: "Organic by Nature.\nArtisanal by Tradition.",
+            description: "We don't just grow coffee; we care for every bean from seed to cup, honoring the Venezuelan soil and the craft of generations."
         },
         footer: {
             tagline: "Bridging the gap between the wild beauty of the origin and the refined pleasure of the cup.",
             transparency: "Transparency",
             sustainability: "Sustainability",
             join: "Join the Cycle",
-            rights: "© 2026 Síncrono Origen. Caracas, Venezuela.",
+            rights: "© 2026 Café Loma Encantada. Caracas, Venezuela.",
             data_sheets: "Data Sheets (TDS)",
             sica: "SICA: 1234-5678",
             contracts: "Direct Trade Contracts",
@@ -160,17 +164,17 @@ export const dictionary = {
             contact: "Contacto"
         },
         hero: {
-            title: "EL RENACER DEL CAFÉ",
-            title_desc: "Donde la tradición se encuentra con la innovación.",
-            subtitle: "Cultivado en las cumbres de Venezuela, perfeccionado para tu taza. Una experiencia sensorial única.",
-            location: "Caracas /// 1800m /// Venezuela",
-            cta: "Explora la Colección",
+            title: "CAFÉ DE ALTURA",
+            title_desc: "Cultivado y tostado en las montañas de Venezuela.",
+            subtitle: "Granos de origen único, cosechados a mano y tostados en pequeños lotes por tres generaciones. Una taza con alma.",
+            location: "Venezuela /// 1.600m /// Café de Altura",
+            cta: "Conoce Nuestros Cafés",
             origin: "Origen",
             process: "Proceso",
             cup: "Taza"
         },
         traceability: {
-            title: "EXTRACCIÓN CONSCIENTE",
+            title: "DEL GRANO A TU TAZA",
             subtitle: "Del Suelo a los Sentidos",
             formula_label: "Ecuación Objetivo",
             calculated_yield: "Rendimiento Calculado:",
@@ -189,73 +193,77 @@ export const dictionary = {
             altitude: "Altitud",
             notes: "Notas de Cata",
             items: [
-                // Arabicas
                 {
-                    id: "arabica_1",
-                    name: "Síncrono Blend",
-                    desc: "Red Bourbon / Caturra. Equilibrado y dulce.",
-                    price: "$34.00",
-                    origin: "Cordillera de la Costa",
+                    id: "origen",
+                    name: "Origen Único",
+                    image: "/imagenes/cafe_loma_origen.png",
+                    desc: "100% Arábica. Limpio, balanceado, origen único.",
+                    price: "$12.00",
+                    origin: "Colombia",
                     process: "Lavado",
                     altitude: "1600m",
-                    notes: "Caramelo, Cítricos, Chocolate Oscuro",
+                    notes: "Caramelo, Cítricos, Cacao",
                     type: "Arábica"
                 },
                 {
-                    id: "arabica_2",
-                    name: "Estate Origin",
-                    desc: "Variedad Única: Bourbon. Floral y delicado.",
-                    price: "$42.00",
-                    origin: "Bosque Nublado",
-                    process: "Miel",
+                    id: "seleccion",
+                    name: "Selección Especial",
+                    image: "/imagenes/cafe_loma_seleccion.png",
+                    desc: "Edición limitada. Honey process, cuerpo dulce.",
+                    price: "$18.00",
+                    origin: "Venezuela",
+                    process: "Honey",
                     altitude: "1800m",
-                    notes: "Jazmín, Miel, Albaricoque",
+                    notes: "Miel Silvestre, Albaricoque, Panela",
                     type: "Arábica"
                 },
                 {
-                    id: "arabica_3",
-                    name: "Geisha Lot",
-                    desc: "Fermentación Experimental. Exótico y complejo.",
-                    price: "$65.00",
-                    origin: "Pico Alto",
-                    process: "Natural Anaeróbico",
-                    altitude: "2100m",
-                    notes: "Bergamota, Hierba de Limón, Arándano",
-                    type: "Arábica"
-                },
-                // Robustas
-                {
-                    id: "robusta_1",
-                    name: "Amazonian Bold",
-                    desc: "Robusta de altura. Intenso y con cuerpo.",
-                    price: "$28.00",
-                    origin: "Cuenca Amazónica",
+                    id: "intenso",
+                    name: "Intenso",
+                    image: "/imagenes/cafe_loma_intenso.png",
+                    desc: "Tueste intenso. Carácter y fuerza.",
+                    price: "$11.00",
+                    origin: "Venezuela",
                     process: "Natural",
-                    altitude: "800m",
-                    notes: "Cacao Oscuro, Especias, Tierra",
-                    type: "Robusta"
+                    altitude: "1500m",
+                    notes: "Chocolate Oscuro, Nuez Tostada, Especias",
+                    type: "Arábica"
                 },
                 {
-                    id: "robusta_2",
-                    name: "Crema Suprema",
-                    desc: "Perfecto para espresso. Crema espesa y baja acidez.",
-                    price: "$30.00",
-                    origin: "Tierras Bajas",
+                    id: "oscuro",
+                    name: "Tueste Oscuro",
+                    image: "/imagenes/cafe_loma_oscuro.png",
+                    desc: "Cuerpo profundo con notas a cacao.",
+                    price: "$11.00",
+                    origin: "Venezuela",
+                    process: "Natural",
+                    altitude: "1400m",
+                    notes: "Cacao, Melaza, Ahumado",
+                    type: "Arábica"
+                },
+                {
+                    id: "descafeinado",
+                    name: "Descafeinado",
+                    image: "/imagenes/cafe_loma_descafeinado.png",
+                    desc: "Todo el sabor, sin cafeína.",
+                    price: "$12.00",
+                    origin: "Venezuela",
                     process: "Lavado",
-                    altitude: "900m",
-                    notes: "Nuez, Tabaco, Melaza",
-                    type: "Robusta"
+                    altitude: "1500m",
+                    notes: "Suave, Dulce, Almendra",
+                    type: "Arábica"
                 },
                 {
-                    id: "robusta_3",
-                    name: "Energy Roast",
-                    desc: "Doble contenido de cafeína. Para el alma activa.",
-                    price: "$25.00",
-                    origin: "Valle",
-                    process: "Miel",
-                    altitude: "700m",
-                    notes: "Mantequilla de Maní, Tostada, Malta",
-                    type: "Robusta"
+                    id: "variacion",
+                    name: "Mezcla de la Casa",
+                    image: "/imagenes/cafe_loma_variacion_1.png",
+                    desc: "Mezcla de la casa, suave y versátil.",
+                    price: "$10.00",
+                    origin: "Venezuela",
+                    process: "Mixto",
+                    altitude: "1500m",
+                    notes: "Balanceado, Nuez, Suave",
+                    type: "Arábica"
                 }
             ]
         },
@@ -282,15 +290,15 @@ export const dictionary = {
             article2_desc: "Cómo usamos datos de sensores para replicar la reacción de Maillard perfecta cada vez."
         },
         story: {
-            title: "Orgánico por Naturaleza.\nPreciso por Diseño.",
-            description: "No solo cultivamos café; diseñamos perfiles de sabor desde la raíz. Cerrando la brecha entre la belleza caótica del bosque nublado y la precisión basada en datos de tu taza matutina."
+            title: "Orgánico por Naturaleza.\nArtesanal por Tradición.",
+            description: "No solo cultivamos café; cuidamos cada grano desde la semilla hasta tu taza, honrando la tierra venezolana y el oficio de generaciones."
         },
         footer: {
             tagline: "Uniendo la belleza salvaje del origen con el placer refinado de una buena taza.",
             transparency: "Transparencia",
             sustainability: "Sostenibilidad",
             join: "Únete al Ciclo",
-            rights: "© 2026 Síncrono Origen. Caracas, Venezuela.",
+            rights: "© 2026 Café Loma Encantada. Caracas, Venezuela.",
             data_sheets: "Fichas de Datos (TDS)",
             sica: "SICA: 1234-5678",
             contracts: "Contratos de Trato Directo",

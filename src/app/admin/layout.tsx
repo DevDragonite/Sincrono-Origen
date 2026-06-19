@@ -35,7 +35,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 <div className="p-6 border-b border-white/5 flex items-center justify-between">
                     {!collapsed && (
                         <div>
-                            <div className="font-display font-bold text-lg tracking-widest text-white">SÍNCRONO</div>
+                            <div className="font-display font-bold text-sm tracking-[0.18em] text-white">LOMA ENCANTADA</div>
                             <div className="text-[0.55rem] tracking-[0.25em] uppercase text-white/40">Admin Panel</div>
                         </div>
                     )}

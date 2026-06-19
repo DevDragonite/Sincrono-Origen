@@ -13,8 +13,8 @@ export default function CartDrawer() {
 
     const buildWhatsAppMessage = () => {
         const header = language === "es"
-            ? "🌿 *Pedido desde Síncrono Origen*\n\n"
-            : "🌿 *Order from Síncrono Origen*\n\n";
+            ? "🌿 *Pedido desde Loma Encantada*\n\n"
+            : "🌿 *Order from Loma Encantada*\n\n";
 
         const itemsList = items
             .map((item) => `• ${item.name} x${item.quantity} — ${item.price}`)

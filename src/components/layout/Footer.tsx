@@ -14,7 +14,7 @@ export default function Footer() {
 
                     {/* Brand Column */}
                     <div className="md:col-span-4">
-                        <h2 className="font-display text-2xl tracking-widest text-brand-cream mb-4">SÍNCRONO ORIGEN</h2>
+                        <h2 className="font-display text-2xl tracking-widest text-brand-cream mb-4">CAFÉ LOMA ENCANTADA</h2>
                         <p className="text-brand-cream/60 text-sm leading-relaxed mb-6">
                             {t.footer.tagline}
                         </p>

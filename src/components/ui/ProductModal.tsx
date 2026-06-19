@@ -35,6 +35,7 @@ interface Product {
     altitude: string;
     notes: string;
     type: string;
+    image?: string;
 }
 
 interface ProductModalProps {
@@ -103,10 +104,19 @@ export default function ProductModal({ isOpen, onClose, product, labels }: Produ
                     <div className="overflow-y-auto flex-1 min-h-0">
                         <div className="flex flex-col md:flex-row">
                             {/* Product Image */}
-                            <div className="w-full md:w-1/3 bg-white flex items-center justify-center p-3 md:p-6 shrink-0">
-                                <div className="w-16 h-20 md:w-28 md:h-36">
-                                    <ProductMockup color={mockupColor} accent={mockupAccent} />
-                                </div>
+                            <div className="w-full md:w-1/3 bg-brand-cream flex items-center justify-center p-3 md:p-6 shrink-0">
+                                {product.image ? (
+                                    /* eslint-disable-next-line @next/next/no-img-element */
+                                    <img
+                                        src={product.image}
+                                        alt={product.name}
+                                        className="w-28 h-28 md:w-44 md:h-44 object-contain"
+                                    />
+                                ) : (
+                                    <div className="w-16 h-20 md:w-28 md:h-36">
+                                        <ProductMockup color={mockupColor} accent={mockupAccent} />
+                                    </div>
+                                )}
                             </div>
 
                             {/* Content */}

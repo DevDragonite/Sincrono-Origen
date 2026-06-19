@@ -5,7 +5,7 @@ import { Package, Plus, Edit2, Trash2, Search } from "lucide-react";
 import { useState } from "react";
 
 const mockProducts = [
-    { id: "arabica_1", name: "Síncrono Blend", type: "Arábica", price: "$34.00", stock: 45, status: "Activo" },
+    { id: "arabica_1", name: "Origen Único", type: "Arábica", price: "$34.00", stock: 45, status: "Activo" },
     { id: "arabica_2", name: "Estate Origin", type: "Arábica", price: "$42.00", stock: 28, status: "Activo" },
     { id: "arabica_3", name: "Geisha Lot", type: "Arábica", price: "$65.00", stock: 12, status: "Activo" },
     { id: "robusta_1", name: "Amazonian Bold", type: "Robusta", price: "$28.00", stock: 60, status: "Activo" },

@@ -111,8 +111,8 @@ export default function TrustSection() {
                     </h2>
                     <p className="text-brand-roast text-sm md:text-base leading-relaxed max-w-2xl mx-auto">
                         {language === "es"
-                            ? "No todos los cafés de especialidad son iguales. El nuestro nace en suelo volcánico venezolano, cosechado a mano y tostado con datos precisos. El resultado: una taza que no solo pruebas, sino que sientes."
-                            : "Not all specialty coffees are created equal. Ours is born in Venezuelan volcanic soil, hand-harvested and roasted with precise data. The result: a cup you don't just taste — you feel."}
+                            ? "No todos los cafés de especialidad son iguales. El nuestro nace en suelo volcánico venezolano, cosechado a mano y tostado en pequeños lotes. El resultado: una taza que no solo pruebas, sino que sientes."
+                            : "Not all specialty coffees are created equal. Ours is born in Venezuelan volcanic soil, hand-harvested and roasted in small batches. The result: a cup you don't just taste — you feel."}
                     </p>
                 </motion.div>
 
@@ -124,7 +124,7 @@ export default function TrustSection() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.12 }}
-                            className="group relative bg-white border border-brand-brown/5 rounded-2xl p-5 md:p-7 text-center overflow-hidden hover:border-brand-brown/15 transition-all duration-500 hover:shadow-lg"
+                            className="group relative bg-white border border-brand-brown/10 rounded-2xl p-5 md:p-7 text-center overflow-hidden hover:border-brand-green/30 hover:shadow-[0_12px_40px_rgba(90,60,30,0.12)] transition-all duration-500"
                         >
                             {/* Hover gradient */}
                             <div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />

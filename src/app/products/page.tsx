@@ -3,7 +3,6 @@
 import Image from 'next/image';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 import { motion, AnimatePresence } from 'framer-motion';
-import ProductMockup from '@/components/ui/illustrations/ProductMockup';
 import ProductModal from '@/components/ui/ProductModal';
 import { useState, useEffect } from 'react';
 import { useCart } from '@/lib/CartContext';
@@ -50,8 +49,6 @@ export default function ProductsPage() {
 
     const filterButtons = [
         { key: "all" as const, label: language === "es" ? "Todos" : "All" },
-        { key: "Arabica" as const, label: "Arábica" },
-        { key: "Robusta" as const, label: "Robusta" },
     ];
 
     return (
@@ -100,11 +97,12 @@ export default function ProductsPage() {
                                 className="group cursor-pointer"
                                 onClick={() => setSelectedProduct(p)}
                             >
-                                <div className="aspect-square md:aspect-[4/5] bg-white border border-brand-brown/10 mb-3 md:mb-4 relative overflow-hidden transition-all duration-500 group-hover:border-brand-copper flex items-center justify-center p-4 md:p-6 rounded-lg">
-                                    <ProductMockup
-                                        color={p.type === 'Robusta' ? "#2A1810" : i % 3 === 0 ? "#3D2B1F" : i % 3 === 1 ? "#2D5A27" : "#1A1A1A"}
-                                        accent={p.type === 'Robusta' ? "#C65D3B" : i % 3 === 0 ? "#D4AF37" : i % 3 === 1 ? "#C0D860" : "#E5E5E5"}
-                                        className="transition-transform duration-500 group-hover:scale-105 max-h-[200px] md:max-h-[260px]"
+                                <div className="aspect-square md:aspect-[4/5] bg-brand-cream border border-brand-brown/10 mb-3 md:mb-4 relative overflow-hidden transition-all duration-500 group-hover:border-brand-copper flex items-center justify-center p-4 md:p-6 rounded-lg">
+                                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                                    <img
+                                        src={p.image}
+                                        alt={p.name}
+                                        className="max-h-[220px] md:max-h-[300px] w-full object-contain transition-transform duration-500 group-hover:scale-105"
                                     />
                                     <div className="absolute inset-0 bg-brand-brown/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                                 </div>

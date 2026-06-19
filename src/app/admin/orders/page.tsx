@@ -5,12 +5,12 @@ import { ClipboardList, Search, Eye, MessageCircle, CheckCircle } from "lucide-r
 import { useState } from "react";
 
 const mockOrders = [
-    { id: "#ORD-001", customer: "María González", phone: "+58 412-1234567", products: "Síncrono Blend x2", total: "$68.00", date: "20 Feb 2026", status: "Pendiente", statusColor: "bg-amber-500/20 text-amber-400" },
+    { id: "#ORD-001", customer: "María González", phone: "+58 412-1234567", products: "Origen Único x2", total: "$68.00", date: "20 Feb 2026", status: "Pendiente", statusColor: "bg-amber-500/20 text-amber-400" },
     { id: "#ORD-002", customer: "Carlos Mendoza", phone: "+58 414-7654321", products: "Geisha Lot x1", total: "$65.00", date: "19 Feb 2026", status: "Enviado", statusColor: "bg-blue-500/20 text-blue-400" },
     { id: "#ORD-003", customer: "Ana Rodríguez", phone: "+58 424-1112233", products: "Estate Origin x1, Energy Roast x2", total: "$92.00", date: "18 Feb 2026", status: "Entregado", statusColor: "bg-emerald-500/20 text-emerald-400" },
     { id: "#ORD-004", customer: "Luis Pérez", phone: "+58 416-9876543", products: "Amazonian Bold x3", total: "$84.00", date: "18 Feb 2026", status: "Pendiente", statusColor: "bg-amber-500/20 text-amber-400" },
     { id: "#ORD-005", customer: "Sofia Torres", phone: "+58 412-5556677", products: "Crema Suprema x2", total: "$60.00", date: "17 Feb 2026", status: "Enviado", statusColor: "bg-blue-500/20 text-blue-400" },
-    { id: "#ORD-006", customer: "Diego Ramírez", phone: "+58 414-3344556", products: "Síncrono Blend x1, Geisha Lot x1", total: "$99.00", date: "16 Feb 2026", status: "Entregado", statusColor: "bg-emerald-500/20 text-emerald-400" },
+    { id: "#ORD-006", customer: "Diego Ramírez", phone: "+58 414-3344556", products: "Origen Único x1, Geisha Lot x1", total: "$99.00", date: "16 Feb 2026", status: "Entregado", statusColor: "bg-emerald-500/20 text-emerald-400" },
 ];
 
 export default function AdminOrders() {

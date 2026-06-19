@@ -6,9 +6,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
 const images = [
-    { src: "/images/sincro-folleto.jpeg", alt: "Folleto Síncrono Origen" },
-    { src: "/images/sincro-edificio.jpeg", alt: "Edificio Síncrono Origen" },
-    { src: "/images/sincro-empaque.jpeg", alt: "Empaque Síncrono Origen" },
+    { src: "/images/sincro-folleto.jpeg", alt: "Folleto Loma Encantada" },
+    { src: "/images/sincro-edificio.jpeg", alt: "Edificio Loma Encantada" },
+    { src: "/images/sincro-empaque.jpeg", alt: "Empaque Loma Encantada" },
 ];
 
 export default function TraceabilitySection() {
@@ -44,10 +44,10 @@ export default function TraceabilitySection() {
                             <div className="w-2 h-2 bg-brand-green rounded-full animate-pulse" />
                             <span className="text-xs font-bold tracking-widest text-brand-green uppercase">{t.traceability.title}</span>
                         </div>
-                        <h2 className="font-display text-4xl md:text-5xl mb-6">
+                        <h2 className="font-display text-4xl md:text-5xl mb-6 leading-tight">
                             {t.traceability.subtitle}
                         </h2>
-                        <p className="text-brand-cream/80 text-lg leading-relaxed mb-8">
+                        <p className="text-brand-cream/80 text-lg leading-relaxed mb-8 max-w-prose">
                             {t.traceability.description}
                         </p>
                     </div>

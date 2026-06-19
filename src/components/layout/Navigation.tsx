@@ -49,8 +49,8 @@ export default function Navigation() {
             }`}>
             {/* Brand - Left */}
             <Link href="/" className="pointer-events-auto group relative z-50">
-                <div className={`font-display font-bold text-xl tracking-widest transition-colors ${scrolled || mobileMenuOpen ? 'text-brand-cream' : 'text-brand-brown'}`}>SÍNCRONO</div>
-                <div className={`text-[0.6rem] tracking-[0.3em] uppercase transition-colors ${scrolled || mobileMenuOpen ? 'text-brand-cream/60' : 'text-brand-roast'}`}>Origen</div>
+                <div className={`font-display font-bold text-base sm:text-xl tracking-[0.1em] sm:tracking-widest transition-colors ${scrolled || mobileMenuOpen ? 'text-brand-cream' : 'text-brand-brown'}`}>LOMA ENCANTADA</div>
+                <div className={`text-[0.6rem] tracking-[0.3em] uppercase transition-colors ${scrolled || mobileMenuOpen ? 'text-brand-cream/60' : 'text-brand-roast'}`}>Café</div>
             </Link>
 
             {/* Mobile: Cart + Menu Button */}

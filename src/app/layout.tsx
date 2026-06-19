@@ -16,7 +16,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-    title: 'Síncrono Origen | Technological Coffee',
+    title: 'Café Loma Encantada | Café de Altura',
     description: 'Bridging the gap between organic chaos and digital precision.',
 };
 

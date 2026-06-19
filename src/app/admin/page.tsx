@@ -81,7 +81,7 @@ const stats = [
 ];
 
 const recentOrders = [
-    { id: "#ORD-001", customer: "María González", product: "Síncrono Blend x2", total: "$68.00", status: "Pendiente", statusColor: "bg-amber-500/20 text-amber-400" },
+    { id: "#ORD-001", customer: "María González", product: "Origen Único x2", total: "$68.00", status: "Pendiente", statusColor: "bg-amber-500/20 text-amber-400" },
     { id: "#ORD-002", customer: "Carlos Mendoza", product: "Geisha Lot x1", total: "$65.00", status: "Enviado", statusColor: "bg-blue-500/20 text-blue-400" },
     { id: "#ORD-003", customer: "Ana Rodríguez", product: "Estate Origin x1, Energy Roast x2", total: "$92.00", status: "Entregado", statusColor: "bg-emerald-500/20 text-emerald-400" },
     { id: "#ORD-004", customer: "Luis Pérez", product: "Amazonian Bold x3", total: "$84.00", status: "Pendiente", statusColor: "bg-amber-500/20 text-amber-400" },
@@ -89,7 +89,7 @@ const recentOrders = [
 ];
 
 const topProducts = [
-    { name: "Síncrono Blend", sold: 45, revenue: "$1,530", pct: 85 },
+    { name: "Origen Único", sold: 45, revenue: "$1,530", pct: 85 },
     { name: "Geisha Lot", sold: 28, revenue: "$1,820", pct: 65 },
     { name: "Estate Origin", sold: 22, revenue: "$924", pct: 50 },
     { name: "Amazonian Bold", sold: 18, revenue: "$504", pct: 40 },
@@ -207,7 +207,7 @@ export default function AdminDashboard() {
             {/* Header */}
             <div>
                 <h1 className="text-3xl font-display font-bold text-white mb-1">Dashboard</h1>
-                <p className="text-white/40 text-sm">Resumen general de Síncrono Origen</p>
+                <p className="text-white/40 text-sm">Resumen general de Loma Encantada</p>
             </div>
 
             {/* Stats Grid */}

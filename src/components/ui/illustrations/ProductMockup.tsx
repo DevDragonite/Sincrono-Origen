@@ -12,7 +12,7 @@ interface ProductMockupProps {
 export default function ProductMockup({
     color = "#3D2B1F",
     accent = "#D4AF37",
-    label = "SINCRONO",
+    label = "LOMA",
     className = ""
 }: ProductMockupProps) {
     return (

@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import MagneticButton from '@/components/ui/MagneticButton';
 import TraceabilitySection from '@/components/sections/TraceabilitySection';
-import ProductsSection from '@/components/sections/ProductsSection';
+import CuratedCarousel from '@/components/sections/CuratedCarousel';
 import TrustSection from '@/components/sections/TrustSection';
 import HeroBackground from '@/components/ui/illustrations/HeroBackground';
 import CoffeeCropsIllustration from '@/components/ui/illustrations/CoffeeCropsIllustration';
@@ -75,25 +75,23 @@ export default function Home() {
                     </div>
                 </div>
 
-                {/* Right Side: Image/Illustration (50%) */}
-                <div className="w-full md:w-1/2 h-[50vh] md:h-screen relative bg-brand-green-dark/5 overflow-hidden md:mt-24 md:mr-8 md:rounded-t-2xl md:h-[calc(100vh-6rem)]">
+                {/* Right Side: Producto protagonista (50%) */}
+                <div className="w-full md:w-1/2 h-[50vh] md:h-screen relative flex items-center justify-center overflow-hidden">
+                    {/* Halo de color cálido para que el vidrio esmerilado del producto resalte */}
+                    <div aria-hidden className="absolute w-[80%] max-w-[520px] aspect-square rounded-full bg-gradient-to-br from-brand-green/20 to-brand-copper/15 blur-3xl" />
                     <motion.div
-                        initial={{ opacity: 0, scale: 1.1 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 1.5, ease: "easeOut" }}
-                        className="absolute inset-0"
+                        initial={{ opacity: 0, y: 30, scale: 0.96 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        transition={{ duration: 1.2, ease: "easeOut" }}
+                        className="relative z-10 w-[72%] max-w-[300px] md:max-w-[440px]"
                     >
-                        <Image
-                            src="/images/hero-crops.jpg"
-                            alt="Cultivos de café en Venezuela"
-                            fill
-                            className="object-cover"
-                            priority
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                            src="/imagenes/cafe_loma_origen.png"
+                            alt="Café Loma Encantada — Origen Único"
+                            className="w-full h-auto drop-shadow-2xl"
                         />
                     </motion.div>
-                    {/* Gradient Overlay for blending */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-brand-cream via-transparent to-transparent md:bg-gradient-to-r" />
-                    <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-brand-cream to-transparent md:hidden" />
                 </div>
 
             </section>
@@ -102,7 +100,7 @@ export default function Home() {
             <TraceabilitySection />
 
             {/* Products & Collection */}
-            <ProductsSection />
+            <CuratedCarousel />
 
             {/* Trust / Stats Section */}
             <TrustSection />
@@ -141,8 +139,8 @@ export default function Home() {
                         className="text-base md:text-xl opacity-80 leading-relaxed italic"
                     >
                         {language === "es"
-                            ? "\"Baristas de Caracas, Miami y Madrid ya lo saben. Cuando buscan un perfil único para competencias o cartas de temporada, encuentran en Síncrono lo que otros no pueden replicar.\""
-                            : "\"Baristas in Caracas, Miami and Madrid already know. When they look for a unique profile for competitions or seasonal menus, they find in Síncrono what others can't replicate.\""}
+                            ? "\"Baristas de Caracas, Miami y Madrid ya lo saben. Cuando buscan un perfil único para competencias o cartas de temporada, encuentran en Loma Encantada lo que otros no pueden replicar.\""
+                            : "\"Baristas in Caracas, Miami and Madrid already know. When they look for a unique profile for competitions or seasonal menus, they find in Loma Encantada what others can't replicate.\""}
                     </motion.p>
                 </motion.div>
             </section>
